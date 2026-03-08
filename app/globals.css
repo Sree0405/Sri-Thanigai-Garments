@@ -1,26 +1,219 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+    /* =========================
+       BASE
+    ==========================*/
+
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    /* =========================
+       BRAND COLORS
+    ==========================*/
+
+    --primary: 0 72% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --primary-light: 0 72% 52%;
+    --primary-dark: 0 72% 32%;
+
+    /* =========================
+       ACCENT
+    ==========================*/
+
+    --accent: 43 64% 52%;
+    --accent-light: 43 64% 62%;
+    --accent-dark: 43 64% 42%;
+
+    --accent-foreground: 222 47% 11%;
+
+    /* =========================
+       DARK SURFACES
+    ==========================*/
+
+    --dark: 215 28% 17%;
+    --dark-soft: 215 25% 22%;
+    --dark-deep: 222 47% 8%;
+
+    /* =========================
+       SECONDARY
+    ==========================*/
+
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* =========================
+       HERO
+    ==========================*/
+
+    --hero-overlay: 215 28% 10%;
+    --section-alt: 220 14% 96%;
+
+    /* =========================
+       EFFECTS
+    ==========================*/
+
+    --ring: 0 72% 42%;
+    --radius: 0.75rem;
+
   }
+
+  /* =========================
+     DARK MODE
+  ==========================*/
+
+  .dark {
+
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --border: 217 32% 17%;
+
+    --primary: 0 72% 50%;
+    --secondary: 215 28% 25%;
+
+  }
+
+  /* =========================
+     GLOBAL BASE
+  ==========================*/
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    @apply font-heading;
+  }
+
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+
+  /* =========================
+     LAYOUT
+  ==========================*/
+
+  .container-narrow {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* =========================
+     BRAND GRADIENT
+  ==========================*/
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary to-indigo-600;
+  }
+
+  .gradient-primary-soft {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--primary-light))
+    );
+  }
+.gradient-custom {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)),
+    #4f46e5
+  );
+}
+  .gradient-hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(0,0,0,0.95),
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.35)
+    );
+  }
+
+  /* =========================
+     GOLD TEXT
+  ==========================*/
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--accent)),
+      hsl(var(--accent-light))
+    );
+  }
+
+  /* =========================
+     DARK SECTION
+  ==========================*/
+
+  .bg-dark-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--dark)),
+      hsl(var(--dark-deep))
+    );
+  }
+
+  /* =========================
+     GLASS
+  ==========================*/
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-xl border border-white/10;
+  }
+
+  /* =========================
+     BUTTONS
+  ==========================*/
+
+  .btn-primary {
+    @apply gradient-primary text-white font-semibold px-7 py-3 rounded-xl shadow-md hover:opacity-90 transition;
+  }
+
+  .btn-outline {
+    @apply border border-border px-7 py-3 rounded-xl font-semibold hover:bg-muted transition;
+  }
+
+  /* =========================
+     CARD
+  ==========================*/
+
+  .card-premium {
+    @apply bg-card rounded-xl border border-border shadow-sm hover:shadow-lg transition;
+  }
+
 }
