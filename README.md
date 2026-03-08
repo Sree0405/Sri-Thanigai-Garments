@@ -1,226 +1,222 @@
-Sri Thanigai Garments – Corporate Website
+# Sri Thanigai Garments – Corporate Website
 
-A modern corporate garment manufacturing website built using Next.js, Directus CMS, and PostgreSQL.
+A modern **corporate garment manufacturing website** built using **Next.js, Directus CMS, and PostgreSQL**.
 
-The platform provides a scalable and dynamic architecture where all website content is managed through a headless CMS (Directus) while the frontend renders the data dynamically using Next.js App Router.
+This platform uses a **Headless CMS architecture** where all content is dynamically managed through **Directus**, while **Next.js renders the frontend dynamically**.
 
-This architecture enables non-technical administrators to manage the entire website through the CMS dashboard without modifying the frontend code.
+The system allows administrators to manage the entire website without touching code, including:
 
-The system supports dynamic product catalogues, fabric management, galleries, and company infrastructure pages, making the platform future-ready for B2B integrations and catalogue expansion.
+* Product categories
+* Sub categories
+* Products
+* Product details
+* Fabrics
+* Gallery images
+* Infrastructure
+* Manufacturing details
 
-Project Architecture
+---
 
-The project follows a Headless CMS Architecture.
+# Project Architecture
 
+The application follows a **Headless CMS architecture**.
+
+```
 Frontend (Next.js + React)
         |
-        | REST / API Requests
+        | REST API
         |
 Backend (Directus CMS)
         |
         |
 Database (PostgreSQL)
-Key Characteristics
+```
 
-• Fully dynamic content architecture
-• Admin-managed CMS dashboard
-• Scalable data structure
-• Component-driven frontend
-• Optimized image handling
-• SEO-friendly routing
-• Responsive UI system
+### Key Features
 
-Technology Stack
-Frontend
+* Fully dynamic website
+* Admin managed CMS
+* Scalable architecture
+* SEO optimized routing
+* Responsive design
+* Modular component system
 
-Framework
-Next.js (App Router)
+---
 
-Language
-TypeScript
+# Technology Stack
 
-UI Library
-React
+## Frontend
 
-Styling
-Tailwind CSS
+| Technology        | Description                                 |
+| ----------------- | ------------------------------------------- |
+| **Next.js**       | React framework for SSR and dynamic routing |
+| **TypeScript**    | Type-safe development                       |
+| **React**         | Component-based UI                          |
+| **Tailwind CSS**  | Utility-first styling                       |
+| **Framer Motion** | Animations and transitions                  |
+| **Next Image**    | Optimized image rendering                   |
 
-Animation
-Framer Motion / Motion Based Transitions
+---
 
-Image Handling
-Next.js Image Optimization
+## Backend
 
-Routing
-Next.js Dynamic Routing
+| Technology            | Description         |
+| --------------------- | ------------------- |
+| **Directus**          | Headless CMS        |
+| **PostgreSQL**        | Relational database |
+| **Directus REST API** | Data access layer   |
+| **Directus Assets**   | File storage system |
 
-Deployment
-Cloud / VPS / Shared Hosting
+---
 
-Backend
+# System Overview
 
-CMS
-Directus
+The platform consists of **two main systems**.
 
-Database
-PostgreSQL
-
-API Layer
-Directus REST API
-
-Asset Storage
-Directus File Storage
-
-Authentication
-Directus Role-based Access
-
-System Overview
-
-The system consists of two main components.
-
-Frontend Application
+## 1. Frontend Application
 
 The frontend is responsible for:
 
-• Rendering dynamic pages
-• Fetching content from Directus
-• Displaying product catalogues
-• Rendering fabric information
-• Displaying gallery images
-• Managing navigation and layout
-• Handling responsive UI
+* Rendering dynamic pages
+* Fetching data from Directus
+* Displaying product catalogues
+* Rendering fabric information
+* Showing gallery images
+* Managing layout and navigation
 
-Backend CMS
+---
 
-Directus is used as a Headless CMS that allows administrators to manage all website data through a visual dashboard.
+## 2. Backend CMS
 
-Administrators can create and manage:
+Directus acts as the **content management system**.
 
-• categories
-• subcategories
-• products
-• product details
-• fabrics
-• galleries
-• infrastructure images
-• manufacturing information
+Admins can manage:
 
-All content changes are immediately reflected on the website through API integration.
+* Categories
+* Sub categories
+* Products
+* Product details
+* Fabrics
+* Gallery
+* Infrastructure
+* Manufacturing details
 
-Database Design
+All updates made in the CMS are instantly reflected on the website.
 
-The PostgreSQL database stores all structured data used by the CMS.
+---
 
-The main entities in the database include:
+# Database Structure
 
-Categories
+The PostgreSQL database stores structured data used by Directus.
 
-Represents main garment categories.
+---
 
-Example
+## Categories
 
+Main garment categories.
+
+| Field          | Description          |
+| -------------- | -------------------- |
+| id             | Primary key          |
+| category_name  | Category title       |
+| slug           | URL slug             |
+| category_image | Banner image         |
+| description    | Category description |
+
+Example:
+
+* Men
+* Women
+* Kids
+
+---
+
+## Sub Categories
+
+Subdivisions of each category.
+
+| Field             | Description                |
+| ----------------- | -------------------------- |
+| id                | Primary key                |
+| sub_category_name | Sub category title         |
+| category_id       | Relationship with category |
+| slug              | URL slug                   |
+| banner_image      | Category banner            |
+
+Example:
+
+```
 Men
-Women
-Kids
+ └── T-Shirts
+ └── Shirts
+```
 
-Fields
+---
 
-• id
-• category_name
-• category_slug
-• category_image
-• description
+## Products
 
-Sub Categories
+Represents product groups.
 
-Represents subdivisions within each garment category.
+| Field           | Description             |
+| --------------- | ----------------------- |
+| id              | Primary key             |
+| product_name    | Product name            |
+| slug            | URL slug                |
+| sub_category_id | Relation to subcategory |
+| product_image   | Product preview         |
+| description     | Product description     |
 
-Example
+---
 
-Men → T-Shirts
-Men → Shirts
-Women → Tops
-Kids → Casual Wear
+## Product Details
 
-Fields
+Represents detailed product variants.
 
-• id
-• sub_category_name
-• category_id (relationship)
-• slug
-• banner_image
+| Field       | Description          |
+| ----------- | -------------------- |
+| id          | Primary key          |
+| product_id  | Parent product       |
+| design_name | Product variant      |
+| images      | Product gallery      |
+| description | Detailed description |
 
-Products
+---
 
-Represents product groups inside each subcategory.
+## Fabrics
 
-Fields
+Fabric catalogue used in production.
 
-• id
-• product_name
-• slug
-• sub_category_id
-• product_description
-• product_image
+| Field        | Description        |
+| ------------ | ------------------ |
+| id           | Primary key        |
+| fabric_name  | Fabric title       |
+| fabric_type  | Fabric category    |
+| fabric_image | Fabric image       |
+| description  | Fabric description |
 
-Product Details
+---
 
-Represents detailed variants or individual product entries.
+## Product Fabric Mapping
 
-Fields
+Links products with fabrics used.
 
-• id
-• product_id
-• design_name
-• images
-• description
+| Field             | Description       |
+| ----------------- | ----------------- |
+| id                | Primary key       |
+| product_detail_id | Product reference |
+| fabric_id         | Fabric reference  |
 
-Fabrics
+---
 
-Fabric catalogue used in garment production.
+# Dynamic Page Architecture
 
-Fields
+All pages are dynamically generated using CMS data.
 
-• id
-• fabric_name
-• fabric_type
-• fabric_image
-• fabric_description
+---
 
-Product Fabric Mapping
+## Product Catalogue Hierarchy
 
-Links products with fabrics used in manufacturing.
-
-Fields
-
-• id
-• product_detail_id
-• fabric_id
-
-This allows each product to display the fabrics used in its production.
-
-Dynamic Page Architecture
-
-All pages in the system are dynamically generated using CMS data.
-
-Home Page
-
-The homepage includes:
-
-Hero banner
-Company introduction
-Product categories
-Manufacturing highlights
-Infrastructure preview
-Gallery preview
-Call-to-action sections
-
-All sections are configurable through CMS content.
-
-Product Catalogue
-
-The product catalogue follows a hierarchical structure.
-
+```
 Category
    |
    └── Sub Category
@@ -228,145 +224,95 @@ Category
            └── Product
                   |
                   └── Product Detail
+```
 
-Example
+Example:
 
+```
 Men
-   |
-   └── T-Shirts
-          |
-          └── Cotton T-Shirt
-                 |
-                 └── Premium Cotton Round Neck
+ └── T-Shirts
+      └── Cotton T-Shirt
+           └── Premium Cotton Round Neck
+```
 
-Each level of the hierarchy is dynamically fetched from Directus.
+---
 
-Fabric Catalogue
+# Website Pages
 
-The fabric section displays the types of fabrics used in garment production.
+| Page             | Description                      |
+| ---------------- | -------------------------------- |
+| Home             | Overview of company and products |
+| About            | Company profile                  |
+| Products         | Product catalogue                |
+| Category Pages   | Men / Women / Kids               |
+| Product Detail   | Individual product details       |
+| Fabric Catalogue | Fabric listing                   |
+| Fabric Detail    | Fabric information               |
+| Manufacturing    | Production workflow              |
+| Infrastructure   | Machinery and facilities         |
+| Gallery          | Factory and production images    |
+| Contact          | Contact information              |
 
-Features include:
+---
 
-• Fabric listing page
-• Fabric detail page
-• Fabric images and specifications
-• Fabric usage in products
+# Image Management
 
-Products can reference the fabrics used in their construction.
+All media files are stored in **Directus asset storage**.
 
-Manufacturing Page
+Includes:
 
-This page displays information about the company’s production process.
+* Product images
+* Fabric images
+* Category banners
+* Gallery photos
+* Infrastructure images
 
-Content includes:
+Next.js automatically optimizes images for performance.
 
-• manufacturing workflow
-• production stages
-• quality control
-• garment finishing process
+---
 
-All content is manageable through CMS fields.
+# SEO Optimization
 
-Infrastructure Page
-
-Displays company infrastructure including:
-
-• machinery
-• production lines
-• factory facilities
-• equipment images
-
-Gallery Page
-
-The gallery page displays images of:
-
-• factory floor
-• garment production
-• finished garments
-• manufacturing environment
-
-Images are uploaded and managed through Directus assets.
-
-Contact Page
-
-The contact page includes:
-
-• company address
-• location map
-• enquiry contact form
-• phone and email details
-
-Dynamic Data Fetching
-
-All frontend data is fetched from Directus using API endpoints.
-
-Example flow:
-
-Next.js Page
-      |
-Fetch Data
-      |
-Directus API
-      |
-PostgreSQL Database
-
-This ensures the frontend always displays the latest CMS content.
-
-Image Management
-
-All images are stored in Directus File Storage.
-
-These include:
-
-• product images
-• fabric images
-• category banners
-• gallery images
-• infrastructure photos
-
-Next.js optimizes these images using its built-in image optimization system.
-
-SEO Optimization
-
-The project includes built-in SEO practices.
+The website includes SEO best practices.
 
 Features include:
 
-• meta titles
-• meta descriptions
-• Open Graph tags
-• structured metadata
-• optimized images
-• clean URL structure
+* Meta titles
+* Meta descriptions
+* Open Graph tags
+* Structured schema data
+* Optimized images
+* Clean URL structure
 
-Example URLs
+Example URLs:
 
+```
 /products/men
 /products/men/t-shirts
 /products/men/t-shirts/cotton-round-neck
 /fabrics/cotton
-Responsive Design
+```
 
-The website is optimized for multiple screen sizes.
+---
 
-Mobile
-320px – 768px
+# Responsive Design
 
-Tablet
-768px – 1024px
+The platform is optimized for all screen sizes.
 
-Laptop
-1024px – 1440px
+| Device  | Screen Range    |
+| ------- | --------------- |
+| Mobile  | 320px – 768px   |
+| Tablet  | 768px – 1024px  |
+| Laptop  | 1024px – 1440px |
+| Desktop | 1440px+         |
 
-Desktop
-1440px+
+Tailwind responsive utilities ensure consistent layouts.
 
-The layout adapts automatically using Tailwind CSS responsive utilities.
+---
 
-Folder Structure
+# Project Folder Structure
 
-Example project structure.
-
+```
 src
 │
 ├── app
@@ -388,72 +334,87 @@ src
 ├── utils
 │
 ├── styles
-CMS Administration
+```
 
-Directus provides a visual dashboard for managing the entire website.
+---
+
+# CMS Administration
+
+Directus provides a visual dashboard.
 
 Admins can:
 
-• create categories
-• create subcategories
-• add products
-• upload product images
-• manage fabrics
-• update gallery images
-• update infrastructure details
+* Create categories
+* Add sub categories
+* Manage products
+* Upload images
+* Manage fabrics
+* Update galleries
+* Edit company information
 
-No coding knowledge is required to manage website content.
+No development knowledge is required.
 
-Deployment
+---
 
-The project can be deployed using:
+# Deployment
 
-Frontend
+## Frontend
 
-Vercel
-Netlify
-Cloud Server
+Possible hosting options:
 
-Backend
+* Vercel
+* Netlify
+* Cloud VPS
 
-Directus Server
-Docker Container
-Cloud VPS
+## Backend
 
-Database
+* Directus Server
+* Docker Container
+* Cloud Hosting
 
-PostgreSQL server
+## Database
 
-Future Enhancements
+* PostgreSQL server
 
-The system architecture allows easy expansion.
+---
 
-Possible upgrades include:
+# Development Status
 
-• B2B product ordering system
-• fabric inventory tracking
-• admin analytics dashboard
-• customer enquiry management
-• multi-language support
-• product filtering system
-• advanced search
+Current completed modules:
 
-Development Status
+* Next.js project setup
+* Tailwind CSS configuration
+* Directus CMS setup
+* PostgreSQL database configuration
+* Dynamic category system
+* Product catalogue system
+* Fabric catalogue system
+* Gallery system
+* Homepage layout
 
-Current progress includes:
+---
 
-• Next.js project setup
-• Tailwind configuration
-• Directus CMS integration
-• PostgreSQL database setup
-• dynamic category system
-• product catalogue system
-• fabric catalogue system
-• gallery system
-• homepage development
+# Future Enhancements
 
-Project Goal
+The system supports future expansion such as:
 
-The goal of this project is to deliver a professional digital platform for Sri Thanigai Garments that showcases the company's manufacturing capabilities, product collections, fabrics, and infrastructure while enabling easy content management through a headless CMS architecture.
+* B2B product ordering
+* Fabric inventory management
+* Product filtering
+* Multi-language support
+* Advanced product search
+* Admin analytics dashboard
+* Customer enquiry management
 
-The platform is designed to be scalable, maintainable, and future-ready for potential expansion into a full product management or B2B catalogue system.
+---
+
+# Project Goal
+
+The goal of this platform is to create a **modern digital presence for Sri Thanigai Garments** that showcases:
+
+* garment collections
+* fabrics
+* manufacturing capabilities
+* production infrastructure
+
+The system is designed to remain **scalable, maintainable, and future-ready** for advanced business integrations.
