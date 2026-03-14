@@ -22,7 +22,7 @@ const GalleryPreview = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-heading font-semibold text-sm uppercase tracking-widest">Gallery</span>
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground mt-3">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-gradient-primary mt-3">
             Inside Our Facility
           </h2>
         </motion.div>

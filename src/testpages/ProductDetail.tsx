@@ -111,7 +111,7 @@ const ProductDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
               >
 
-                <h1 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
+                <h1 className="font-heading font-bold text-3xl md:text-4xl text-gradient-primary mb-4">
                   {product.name}
                 </h1>
 
@@ -123,7 +123,7 @@ const ProductDetail = () => {
                 {/* Features */}
                 <div className="mb-8">
 
-                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-foreground mb-4">
+                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-gradient-primary mb-4">
                     Product Features
                   </h3>
 
@@ -152,7 +152,7 @@ const ProductDetail = () => {
                 {/* Fabrics */}
                 <div className="mb-10">
 
-                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-foreground mb-4">
+                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-gradient-primary mb-4">
                     Available Fabrics
                   </h3>
 
@@ -191,7 +191,7 @@ const ProductDetail = () => {
 
             <div className="container-narrow">
 
-              <h2 className="font-heading font-bold text-2xl text-foreground mb-10">
+              <h2 className="font-heading font-bold text-2xl text-gradient-primary mb-10">
                 Related Products
               </h2>
 

@@ -4,36 +4,52 @@ export interface Category {
   slug: string;
   description: string;
   shortDescription: string;
-  image: string;
+  image: string | null;
 }
+const DIRECTUS_URL = "https://directus-latest-butj.onrender.com";
 
-export const categories: Category[] = [
-  {
-    id: "mens",
-    name: "Men & Boys Wear",
-    slug: "mens-boys-wear",
-    description: "Premium quality garments for men and boys, crafted with precision using the finest fabrics. Our men's collection includes formal shirts, casual shirts, cotton shirts, linen shirts, check shirts, and plain shirts — all manufactured to international quality standards.",
-    shortDescription: "Formal & casual shirts, outerwear and more for men and boys.",
-    image: "/placeholder.svg",
-  },
-  {
-    id: "womens",
-    name: "Women & Girls Wear",
-    slug: "womens-girls-wear",
-    description: "Elegant and stylish garments for women and girls, designed with attention to detail and made from high-quality fabrics. Our women's collection features tops, dresses, nightwear, kurtis, blouses, and casual wear.",
-    shortDescription: "Tops, dresses, nightwear and casual wear for women and girls.",
-    image: "/placeholder.svg",
-  },
-  {
-    id: "kids",
-    name: "Kids Wear",
-    slug: "kids-wear",
-    description: "Comfortable and durable clothing for children, made with soft, skin-friendly fabrics. Our kids collection includes casual wear, comfort clothing, T-shirts, shorts sets, and night suits.",
-    shortDescription: "Comfortable casual and comfort clothing for kids.",
-    image: "/placeholder.svg",
-  },
-];
+export async function getCategories(): Promise<Category[]> {
 
-export function getCategoryBySlug(slug: string): Category | undefined {
-  return categories.find((c) => c.slug === slug);
+  const res = await fetch(
+    `${DIRECTUS_URL}/items/categories?filter[status][_eq]=published`,
+    {
+      next: { revalidate: 60 }
+    }
+  );
+
+  const json = await res.json();
+
+  return json.data.map((item: any) => ({
+    id: item.id,
+    name: item.name,
+    slug: item.slug,
+    description: item.description,
+    shortDescription: item.short_description,
+    image: item.image
+  }));
+}
+export  const categories = await getCategories();
+export async function getCategoryBySlug(slug: string): Promise<Category | null> {
+
+  const res = await fetch(
+    `${DIRECTUS_URL}/items/categories?filter[slug][_eq]=${slug}`,
+    {
+      next: { revalidate: 60 }
+    }
+  );
+
+  const json = await res.json();
+
+  if (!json.data.length) return null;
+
+  const item = json.data[0];
+
+  return {
+    id: item.id,
+    name: item.name,
+    slug: item.slug,
+    description: item.description,
+    shortDescription: item.short_description,
+    image: item.image
+  };
 }

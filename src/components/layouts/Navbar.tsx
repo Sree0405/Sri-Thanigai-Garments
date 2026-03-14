@@ -9,9 +9,7 @@ import { getSubcategoriesByCategory } from "@/src/data/subcategories";
 
 const navLinks = [
   { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
   { label: "Products", path: "/products", hasDropdown: true },
-  { label: "Fabrics", path: "/fabrics" },
   { label: "Manufacturing", path: "/manufacturing" },
   { label: "Infrastructure", path: "/infrastructure" },
   { label: "Gallery", path: "/gallery" },

@@ -85,7 +85,7 @@ const FabricDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
               >
 
-                <h2 className="font-heading font-bold text-3xl text-foreground mb-4">
+                <h2 className="font-heading font-bold text-3xl text-gradient-primary mb-4">
                   {fabric.name}
                 </h2>
 
@@ -97,7 +97,7 @@ const FabricDetail = () => {
                 {/* Properties */}
                 <div className="mb-8">
 
-                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-foreground mb-4">
+                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-gradient-primary mb-4">
                     Fabric Properties
                   </h3>
 
@@ -126,7 +126,7 @@ const FabricDetail = () => {
                 {/* Care Instructions */}
                 <div className="mb-10">
 
-                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-foreground mb-4">
+                  <h3 className="font-heading font-semibold text-sm uppercase tracking-wider text-gradient-primary mb-4">
                     Care Instructions
                   </h3>
 
@@ -167,7 +167,7 @@ const FabricDetail = () => {
 
             <div className="container-narrow">
 
-              <h2 className="font-heading font-bold text-2xl text-foreground mb-10">
+              <h2 className="font-heading font-bold text-2xl text-gradient-primary mb-10">
                 Products Using {fabric.name}
               </h2>
 

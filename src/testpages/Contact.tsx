@@ -53,7 +53,7 @@ const Contact = () => {
 
                 <div className="glass-card p-10 rounded-2xl border border-border">
 
-                  <h2 className="font-heading font-bold text-2xl text-foreground mb-6">
+                  <h2 className="font-heading font-bold text-2xl text-gradient-primary mb-6">
                     Send Us a Message
                   </h2>
 
@@ -64,7 +64,7 @@ const Contact = () => {
                         <Send className="w-8 h-8 text-primary" />
                       </div>
 
-                      <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+                      <h3 className="font-heading font-bold text-xl text-gradient-primary mb-2">
                         Thank You!
                       </h3>
 
@@ -176,7 +176,7 @@ const Contact = () => {
                 className="space-y-8"
               >
 
-                <h2 className="font-heading font-bold text-2xl text-foreground">
+                <h2 className="font-heading font-bold text-2xl text-gradient-primary">
                   Contact Information
                 </h2>
 
@@ -190,7 +190,7 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <p className="font-semibold text-foreground">Email</p>
+                      <p className="font-semibold text-gradient-primary">Email</p>
 
                       <a
                         href="mailto:info@srithanigaigarments.com"
@@ -211,7 +211,7 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <p className="font-semibold text-foreground">Phone</p>
+                      <p className="font-semibold text-gradient-primary">Phone</p>
 
                       <a
                         href="tel:+919876543210"
@@ -232,7 +232,7 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <p className="font-semibold text-foreground">Address</p>
+                      <p className="font-semibold text-gradient-primary">Address</p>
 
                       <p className="text-muted-foreground">
                         Chennai, Tamil Nadu, India
@@ -254,7 +254,7 @@ const Contact = () => {
 
 
         {/* MAP */}
-        <section className="bg-muted/40">
+        {/* <section className="bg-muted/40">
 
           <div className="container-narrow py-20">
 
@@ -273,7 +273,7 @@ const Contact = () => {
 
           </div>
 
-        </section>
+        </section> */}
 
       </main>
 

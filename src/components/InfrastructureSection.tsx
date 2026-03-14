@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "framer-motion";
 
 import sewingMachine from "@/src/assets/factory-floor.jpg";
@@ -41,7 +42,7 @@ const InfrastructureSection = ({limit=false}) => {
             Equipment & Machinery
           </span>
 
-          <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mt-4">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl text-gradient-primary mt-4">
             Modern Garment Manufacturing Equipment
           </h2>
 
@@ -86,7 +87,7 @@ const InfrastructureSection = ({limit=false}) => {
               {/* Content */}
               <div className={`${i % 2 === 1 ? "lg:col-start-1" : ""}`}>
 
-                <h3 className="font-heading font-bold text-2xl text-foreground mb-4">
+                <h3 className="font-heading font-bold text-2xl text-gradient-primary mb-4">
                   {item.title}
                 </h3>
 

@@ -106,7 +106,7 @@ const MetricCounters = () => {
         <div className="text-center max-w-3xl mx-auto mb-20">
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-            Built for <span className="text-gradient-gold">Scale & Precision</span>
+            Built for <span className="text-gradient-primary">Scale & Precision</span>
           </h2>
 
           <p className="mt-6 text-muted-foreground text-lg">

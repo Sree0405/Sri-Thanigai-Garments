@@ -64,7 +64,7 @@ const CategoryPage = () => {
 
               <div>
 
-                <h2 className="font-heading font-bold text-3xl text-foreground mb-2">
+                <h2 className="font-heading font-bold text-3xl text-gradient-primary mb-2">
                   {category.name} Collections
                 </h2>
 
@@ -110,7 +110,7 @@ const CategoryPage = () => {
 
                     <div className="p-6">
 
-                      <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+                      <h3 className="font-heading font-bold text-xl text-gradient-primary mb-2">
                         {sub.name}
                       </h3>
 

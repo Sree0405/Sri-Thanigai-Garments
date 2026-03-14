@@ -67,7 +67,7 @@ const Fabrics = () => {
                 Fabric Types
               </span>
 
-              <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mt-4 mb-4">
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-gradient-primary mt-4 mb-4">
                 High-Quality Fabrics for Durable Garments
               </h2>
 
@@ -109,7 +109,7 @@ const Fabrics = () => {
                     {/* Content */}
                     <div className="p-6">
 
-                      <h3 className="font-heading font-bold text-xl text-foreground mb-2">
+                      <h3 className="font-heading font-bold text-xl text-gradient-primary mb-2">
                         {fabric.name}
                       </h3>
 

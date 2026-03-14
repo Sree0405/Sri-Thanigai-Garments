@@ -2,7 +2,7 @@ import Navbar from "@/src/components/layouts/Navbar";
 import Footer from "@/src/components/layouts/Footer";
 import CTASection from "@/src/components/CTASection";
 import BreadcrumbNav from "@/src/components/BreadcrumbNav";
-import CategoryCard from "@/src/components/CategoryCard";
+import CategoryCard from "@/src/components/product/CategoryCard";
 import HeroSection from "@/src/components/layouts/HeroSection";
 
 import { categories } from "@/src/data/categories";
@@ -79,7 +79,7 @@ const Products = () => {
                 Our Categories
               </span>
 
-              <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mt-4 mb-4">
+              <h2 className="font-heading font-bold text-3xl md:text-4xl text-gradient-primary mt-4 mb-4">
                 Explore Our Garment Collections
               </h2>
 

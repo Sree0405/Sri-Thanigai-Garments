@@ -48,7 +48,7 @@ const About = () => {
                   Our Story
                 </span>
 
-                <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mt-4 mb-6">
+                <h2 className="font-heading font-bold text-3xl md:text-4xl text-gradient-primary mt-4 mb-6">
                   A Reliable Partner for Global Apparel Manufacturing
                 </h2>
 
@@ -124,7 +124,7 @@ const About = () => {
                     <item.icon className="w-6 h-6 text-primary" />
                   </div>
 
-                  <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
+                  <h3 className="font-heading font-semibold text-lg text-gradient-primary mb-3">
                     {item.title}
                   </h3>
 

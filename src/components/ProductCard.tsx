@@ -41,7 +41,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
           />
         </div>
         <div className="p-5">
-          <h3 className="font-heading font-bold text-lg text-foreground mb-1">{product.name}</h3>
+          <h3 className="font-heading font-bold text-lg text-gradient-primary mb-1">{product.name}</h3>
           <p className="text-muted-foreground text-sm mb-3 line-clamp-2">{product.shortDescription}</p>
           <div className="flex flex-wrap gap-1.5 mb-3">
             {productFabrics.map((f) => (

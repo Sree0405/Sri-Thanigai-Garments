@@ -57,11 +57,9 @@ const ProductShowcase = () => {
             Our Products
           </span>
 
-          <h2 className="font-heading font-extrabold text-4xl md:text-6xl mt-5 leading-tight">
-            Crafted for{" "}
-            <span className="text-gradient-gold">
+          <h2 className="font-heading text-gradient-primary font-extrabold text-4xl md:text-6xl mt-5 leading-tight">
+            Crafted for
               Every Category
-            </span>
           </h2>
 
           <p className="text-muted-foreground mt-6 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">

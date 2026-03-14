@@ -76,7 +76,7 @@ const SubcategoryPage = () => {
             >
               <div>
 
-                <h2 className="font-heading font-bold text-3xl text-foreground mb-2">
+                <h2 className="font-heading font-bold text-3xl text-gradient-primary mb-2">
                   {subcategory.name} Collection
                 </h2>
 
@@ -109,7 +109,7 @@ const SubcategoryPage = () => {
             ) : (
               <div className="text-center py-20">
 
-                <h3 className="text-xl font-heading font-semibold text-foreground mb-3">
+                <h3 className="text-xl font-heading font-semibold text-gradient-primary mb-3">
                   Products Coming Soon
                 </h3>
 
