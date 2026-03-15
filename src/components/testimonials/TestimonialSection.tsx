@@ -10,15 +10,20 @@ import "swiper/css/pagination";
 import TestimonialCard from "./TestimonialCard";
 import TestimonialForm from "./Testimonialsform";
 
-const TestimonialSection = ({testimonials}) => {
-    console.log(testimonials)
+import { Testimonial } from "@/src/data/testimonial";
+
+interface TestimonialSectionProps {
+  testimonials: Testimonial[];
+}
+
+const TestimonialSection = ({ testimonials }: TestimonialSectionProps) => {
   return (
     <section className="pb-24 pt-12 px-4 bg-white">
 
       <div className="max-w-6xl mx-auto">
 
         <div className="text-center mb-14">
-          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl  mt-4 text-gradient-primary">
+          <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl mt-4 text-gradient-primary">
             What Our Clients Say
           </h2>
 
@@ -34,7 +39,7 @@ const TestimonialSection = ({testimonials}) => {
             modules={[Autoplay, Navigation, Pagination]}
             spaceBetween={30}
             slidesPerView={3}
-            loop={true}
+            loop
             autoplay={{
               delay: 3500,
               disableOnInteraction: false,
@@ -58,11 +63,11 @@ const TestimonialSection = ({testimonials}) => {
           </Swiper>
 
         </div>
-      <TestimonialForm />
+
+        <TestimonialForm />
 
       </div>
 
-      {/* Internal Swiper Styling */}
       <style jsx global>{`
 
         .testimonial .swiper{

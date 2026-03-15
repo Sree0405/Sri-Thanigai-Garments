@@ -1,7 +1,7 @@
 import Navbar from "@/src/components/layouts/Navbar";
 import HeroCarousel from "@/src/components/layouts/HeroCarousel";
 import MetricCounters from "@/src/components/MetricCounters";
-import ProductShowcase from "@/src/components/ProductShowcase";
+// import ProductShowcase from "@/src/components/ProductShowcase";
 import InfrastructureSection from "@/src/components/InfrastructureSection";
 import GalleryPreview from "@/src/components/GalleryPreview";
 import WhyChooseUs from "@/src/components/WhyChooseUs";
@@ -96,7 +96,7 @@ export default async function Home() {
 
         <MetricCounters />
 
-        <ProductShowcase />
+        {/* <ProductShowcase /> */}
 
 
         {/* <GalleryPreview /> */}

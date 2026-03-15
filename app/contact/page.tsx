@@ -1,5 +1,3 @@
-"use client"
-
 import Navbar from "@/src/components/layouts/Navbar";
 import Footer from "@/src/components/layouts/Footer";
 import HeroSection from "@/src/components/layouts/HeroSection";

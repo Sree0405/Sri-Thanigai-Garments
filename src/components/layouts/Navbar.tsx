@@ -20,12 +20,14 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const handleMouseEnter = () => {
+const handleMouseEnter = () => {
+  if (timeoutRef.current !== null) {
     clearTimeout(timeoutRef.current);
-    setDropdownOpen(true);
-  };
+  }
+  setDropdownOpen(true);
+};
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => setDropdownOpen(false), 150);
@@ -152,10 +154,10 @@ export default function Navbar() {
 
                       <div className="border-t border-gray-200 p-3">
                         <Link
-                          href="/fabrics"
+                          href="/products"
                           className="block text-sm font-medium text-gray-600 hover:text-primary"
                         >
-                          View Fabric Catalogue →
+                          View all Collection →
                         </Link>
                       </div>
 

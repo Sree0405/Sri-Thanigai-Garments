@@ -1,6 +1,11 @@
 import { readItems } from "@directus/sdk";
 import { directus } from "@/src/lib/api";
-
+export interface GalleryItem {
+  id: number | string
+  title: string
+  category: string
+  images: string
+}
 export async function getGallery() {
   try {
     const gallery = await directus.request(

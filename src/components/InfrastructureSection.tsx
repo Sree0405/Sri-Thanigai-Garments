@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 
 import sewingMachine from "@/src/assets/factory-floor.jpg";
+import Image from "next/image";
 
 let equipments = [
   {
@@ -74,8 +75,9 @@ const InfrastructureSection = ({limit=false}) => {
               <div className={`${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
 
                 <div className="rounded-2xl overflow-hidden shadow-xl bg-muted">
-                  <img
+                  <Image
                     src={item.image}
+                    fill
                     alt={item.title}
                     className="w-full h-full object-cover"
                   />

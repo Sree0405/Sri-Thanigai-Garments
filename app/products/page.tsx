@@ -13,20 +13,19 @@ import heroImage from "@/src/assets/hero-factory.jpg";
 import CollectionCard from "@/src/components/product/CollectionCard";
 import CollectionsIntro from "@/src/components/category/CollectionsIntro";
 import CollectionsInfo from "@/src/components/category/CollectionsInfo";
-// export const metadata = {
-//   title:
-//     "Products - Sri Thanigai Garments | Men, Women & Kids Wear Manufacturer",
-//   description:
-//     "Explore our complete range of garments for men, women and kids. Premium quality shirts, tops, dresses, nightwear and casual wear manufactured in Chennai, India.",
-//   openGraph: {
-//     title: "Products - Sri Thanigai Garments",
-//     description:
-//       "Premium garment manufacturer offering men's, women's and kids' wear collections."
-//   }
-// };
+export const metadata = {
+  title:
+    "Products - Sri Thanigai Garments | Men, Women & Kids Wear Manufacturer",
+  description:
+    "Explore our complete range of garments for men, women and kids. Premium quality shirts, tops, dresses, nightwear and casual wear manufactured in Chennai, India.",
+  openGraph: {
+    title: "Products - Sri Thanigai Garments",
+    description:
+      "Premium garment manufacturer offering men's, women's and kids' wear collections."
+  }
+};
 export default async function Products() {
   const categories= await getCategories();
-  console.log(categories)
   return (
     <div className="min-h-screen flex flex-col">
 

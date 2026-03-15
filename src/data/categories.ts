@@ -4,7 +4,7 @@ export interface Category {
   slug: string;
   description: string;
   shortDescription: string;
-  image: string | null;
+  image: string;
 }
 const DIRECTUS_URL = "https://directus-latest-butj.onrender.com";
 

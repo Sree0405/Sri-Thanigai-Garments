@@ -1,23 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { getAssetUrl } from "@/src/lib/api";
-
-export default function GalleryGrid({ gallery }: any) {
-
-  const [active, setActive] = useState("All");
-
-  const categories = [
-    "All",
-    ...Array.from(new Set(gallery.map((item: any) => item.category)))
-  ];
-
+import { GalleryItem } from "@/src/data/gallery";
+interface GalleryGridProp{
+  gallery:GalleryItem[]
+}
+export default function GalleryGrid({ gallery }: GalleryGridProp) {
+const [active, setActive] = useState<string>("All");
+const categories = useMemo(
+  () => ["All", ...Array.from(new Set(gallery.map((item) => item.category)))],
+  [gallery]
+);
+console.log(categories)
   const filtered =
     active === "All"
       ? gallery
-      : gallery.filter((item: any) => item.category === active);
+      : gallery.filter((item) => item.category === active);
 
   return (
     <>
@@ -31,10 +32,10 @@ export default function GalleryGrid({ gallery }: any) {
 
         <div className="container-narrow relative flex justify-center flex-wrap gap-4">
 
-          {categories.map((cat) => (
+          {categories.map((cat,i) => (
 
             <button
-              key={cat}
+              key={i}
               onClick={() => setActive(cat)}
               className={`
               relative px-6 py-2.5 text-sm font-semibold rounded-full

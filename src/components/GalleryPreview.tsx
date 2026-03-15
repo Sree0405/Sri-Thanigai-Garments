@@ -4,8 +4,14 @@ import { ArrowRight } from "lucide-react";
 import factoryFloor from "@/src/assets/factory-floor.jpg";
 import fabricCutting from "@/src/assets/fabric-cutting.jpg";
 import heroFactory from "@/src/assets/hero-factory.jpg";
+import Image, { StaticImageData } from "next/image";
 
-const images = [
+interface GalleryPreviewImage {
+  src: StaticImageData
+  alt: string
+}
+
+const images: GalleryPreviewImage[] = [
   { src: factoryFloor, alt: "Production floor at Sri Thanigai Garments" },
   { src: fabricCutting, alt: "Fabric cutting process" },
   { src: heroFactory, alt: "Factory overview" },
@@ -37,9 +43,10 @@ const GalleryPreview = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group overflow-hidden rounded-2xl aspect-[4/3]"
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
+                fill
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </motion.div>
@@ -53,7 +60,7 @@ const GalleryPreview = () => {
           className="text-center mt-12"
         >
           <Link
-            to="/gallery"
+            href="/gallery"
             className="inline-flex items-center gap-2 text-primary font-heading font-semibold hover:gap-3 transition-all"
           >
             View Full Gallery <ArrowRight className="w-5 h-5" />

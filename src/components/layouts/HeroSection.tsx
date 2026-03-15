@@ -5,7 +5,32 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import BreadcrumbNav from "@/src/components/BreadcrumbNav";
 import Image from "next/image";
+interface Breadcrumb {
+  label: string
+  href?: string
+}
 
+interface CTA {
+  text: string
+  link: string
+}
+
+interface Metric {
+  value: string
+  label: string
+}
+
+interface HeroSectionProps {
+  title: string
+  highlight?: string
+  description?: string
+  tag?: string
+  backgroundImage: any
+  breadcrumbs?: Breadcrumb[]
+  primaryCTA?: CTA
+  secondaryCTA?: CTA
+  metrics?: Metric[]
+}
 export default function HeroSection({
   title,
   highlight,
@@ -16,7 +41,7 @@ export default function HeroSection({
   primaryCTA,
   secondaryCTA,
   metrics = [],
-}) {
+}: HeroSectionProps) {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
 
