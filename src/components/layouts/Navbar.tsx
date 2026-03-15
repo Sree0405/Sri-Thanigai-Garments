@@ -231,62 +231,88 @@ const handleMouseEnter = () => {
           "
           >
 
-            <div className="flex flex-col gap-4">
+<div className="flex flex-col gap-4">
 
-              {navLinks.map((link) =>
-                link.hasDropdown ? (
-                  <div key={link.path}>
+  {navLinks.map((link) =>
+    link.hasDropdown ? (
+      <div key={link.path}>
 
-                    <button
-                      onClick={() =>
-                        setMobileProductsOpen(!mobileProductsOpen)
-                      }
-                      className="flex items-center justify-between w-full"
-                    >
-                      {link.label}
-                      <ChevronDown
-                        className={`transition ${
-                          mobileProductsOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
+        <button
+          onClick={() =>
+            setMobileProductsOpen(!mobileProductsOpen)
+          }
+          className="flex items-center justify-between w-full text-left font-medium"
+        >
+          {link.label}
 
-                    <AnimatePresence>
-                      {mobileProductsOpen && (
-                        <motion.div
-                          initial={{ height: 0 }}
-                          animate={{ height: "auto" }}
-                          exit={{ height: 0 }}
-                          className="overflow-hidden"
-                        >
+          <ChevronDown
+            className={`transition ${
+              mobileProductsOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
 
-                          <div className="pl-4 mt-2 space-y-1">
+        <AnimatePresence>
+          {mobileProductsOpen && (
+            <motion.div
+              initial={{ height: 0 }}
+              animate={{ height: "auto" }}
+              exit={{ height: 0 }}
+              className="overflow-hidden"
+            >
+              <div className="pl-4 mt-2 space-y-1">
 
-                            {categories.map((cat) => (
-                              <Link
-                                key={cat.id}
-                                href={`/products/${cat.slug}`}
-                                className="block text-sm text-gray-600"
-                              >
-                                {cat.name}
-                              </Link>
-                            ))}
-
-                          </div>
-
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                  </div>
-                ) : (
-                  <Link key={link.path} href={link.path}>
-                    {link.label}
+                {categories.map((cat) => (
+                  <Link
+                    key={cat.id}
+                    href={`/products/${cat.slug}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-sm text-gray-600 hover:text-primary transition"
+                  >
+                    {cat.name}
                   </Link>
-                )
-              )}
+                ))}
 
-            </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+      </div>
+    ) : (
+      <Link
+        key={link.path}
+        href={link.path}
+        onClick={() => setIsOpen(false)}
+        className="text-sm font-medium"
+      >
+        {link.label}
+      </Link>
+    )
+  )}
+
+  {/* CTA Button for Mobile */}
+  <Link
+    href="/contact"
+    onClick={() => setIsOpen(false)}
+    className="
+      mt-4
+      flex items-center justify-center gap-2
+      px-5 py-3
+      rounded-full
+      bg-gradient-to-r from-primary to-indigo-500
+      text-white
+      text-sm font-semibold
+      shadow-lg
+      hover:scale-[1.02]
+      transition
+    "
+  >
+    <Phone size={18} />
+    Request Quote
+  </Link>
+
+</div>
 
           </motion.div>
         )}
