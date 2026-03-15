@@ -213,6 +213,29 @@ export default function HeroSection({
 
         </div>
       </div>
+      <script
+type="application/ld+json"
+dangerouslySetInnerHTML={{
+__html: JSON.stringify({
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement":[
+{
+"@type":"ListItem",
+"position":1,
+"name":"Home",
+"item":"https://sri-thanigai-garments.vercel.app"
+},
+{
+"@type":"ListItem",
+"position":2,
+"name":"Contact",
+"item":"https://sri-thanigai-garments.vercel.app/contact"
+}
+]
+})
+}}
+/>
     </section>
   );
 }

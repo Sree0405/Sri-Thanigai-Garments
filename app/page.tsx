@@ -1,30 +1,88 @@
 import Navbar from "@/src/components/layouts/Navbar";
 import HeroCarousel from "@/src/components/layouts/HeroCarousel";
 import MetricCounters from "@/src/components/MetricCounters";
-// import ProductShowcase from "@/src/components/ProductShowcase";
-import InfrastructureSection from "@/src/components/InfrastructureSection";
-import GalleryPreview from "@/src/components/GalleryPreview";
 import WhyChooseUs from "@/src/components/WhyChooseUs";
 import CTASection from "@/src/components/CTASection";
 import Footer from "@/src/components/layouts/Footer";
 import heroImage from "@/src/assets/hero-factory.jpg";
 
-import { getmanufactoring } from "@/src/data/manufactor";
-import ProcessTimeline from "@/src/components/ProcessTimeline";
 import TestimonialSection from "@/src/components/testimonials/TestimonialSection";
 import { getTestimonials } from "@/src/data/testimonial";
 
+import StructuredData from "@/src/seo/StructuredData";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Sri Thanigai Garments | Garment Manufacturer in Chennai | Bulk Apparel Production",
+
+  description:
+    "Sri Thanigai Garments is a trusted garment manufacturer in Chennai specializing in bulk apparel production for men, women and kids. Modern manufacturing infrastructure, export-quality stitching and reliable large-scale garment production.",
+
+  keywords: [
+    "Sri Thanigai Garments",
+    "garment manufacturer Chennai",
+    "bulk garment manufacturing India",
+    "clothing manufacturer Chennai",
+    "apparel manufacturing company",
+    "tshirt manufacturer Chennai",
+    "garment export company India",
+    "textile manufacturing Chennai",
+    "custom clothing manufacturer",
+    "wholesale garment production"
+  ],
+
+  authors: [{ name: "Sri Thanigai Garments" }],
+
+  creator: "Sri Thanigai Garments",
+  publisher: "Sri Thanigai Garments",
+
+  metadataBase: new URL("https://sri-thanigai-garments.vercel.app"),
+
+  alternates: {
+    canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true
+  },
+
+  openGraph: {
+    title: "Sri Thanigai Garments | Premium Apparel Manufacturing",
+    description:
+      "Leading garment manufacturer in Chennai delivering high-quality apparel production with modern infrastructure and strict quality control.",
+    url: "https://sri-thanigai-garments.vercel.app",
+    siteName: "Sri Thanigai Garments",
+    images: [
+      {
+        url: "/images/og-factory.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Sri Thanigai Garments Manufacturing Factory"
+      }
+    ],
+    locale: "en_IN",
+    type: "website"
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Sri Thanigai Garments | Garment Manufacturer",
+    description:
+      "Premium garment manufacturing company specializing in bulk apparel production for global businesses.",
+    images: ["/images/og-factory.jpg"]
+  }
+};
 export default async function Home() {
 
-  const data = await getmanufactoring();
   const testimonials = await getTestimonials();
+
   const heroSlides = [
     {
       tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
-      // title: "Premium Garment Manufacturing",
       highlight: "Sri Thanigai Garments",
       description:
-        "Sri Thanigai Garments delivers high-quality apparel manufacturing for men, women and kids with modern infrastructure and strict quality control.",
+        "Sri Thanigai Garments is a leading garment manufacturer in Chennai delivering high-quality apparel production for men, women and kids with advanced manufacturing infrastructure and strict quality control.",
       backgroundImage: heroImage,
       primaryCTA: {
         text: "Explore Products",
@@ -39,49 +97,7 @@ export default async function Home() {
         { value: "500K+", label: "Garments Produced" },
         { value: "100+", label: "Business Clients" }
       ]
-    },
-    {
-      tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
-      title: "Premium Garment Manufacturing",
-      highlight: "Built for Quality & Scale",
-      description:
-        "Sri Thanigai Garments delivers high-quality apparel manufacturing for men, women and kids with modern infrastructure and strict quality control.",
-      backgroundImage: heroImage,
-      primaryCTA: {
-        text: "Explore Products",
-        link: "/products"
-      },
-      secondaryCTA: {
-        text: "Get a Quote",
-        link: "/contact"
-      },
-      metrics: [
-        { value: "10+", label: "Years Experience" },
-        { value: "500K+", label: "Garments Produced" },
-        { value: "100+", label: "Business Clients" }
-      ]
-    },
-    {
-      tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
-      title: "Premium Garment Manufacturing",
-      highlight: "Built for Quality & Scale",
-      description:
-        "Sri Thanigai Garments delivers high-quality apparel manufacturing for men, women and kids with modern infrastructure and strict quality control.",
-      backgroundImage: heroImage,
-      primaryCTA: {
-        text: "Explore Products",
-        link: "/products"
-      },
-      secondaryCTA: {
-        text: "Get a Quote",
-        link: "/contact"
-      },
-      metrics: [
-        { value: "10+", label: "Years Experience" },
-        { value: "500K+", label: "Garments Produced" },
-        { value: "100+", label: "Business Clients" }
-      ]
-    },    
+    }
   ];
 
   return (
@@ -91,23 +107,22 @@ export default async function Home() {
 
       <main>
 
-        {/* HERO CAROUSEL */}
         <HeroCarousel slides={heroSlides} />
 
         <MetricCounters />
 
-        {/* <ProductShowcase /> */}
-
-
-        {/* <GalleryPreview /> */}
-
         <WhyChooseUs />
+
         <TestimonialSection testimonials={testimonials}/>
+
       </main>
 
       <CTASection />
 
       <Footer />
+
+      {/* SEO Structured Data */}
+      <StructuredData />
 
     </div>
   );
