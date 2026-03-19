@@ -74,8 +74,7 @@ const InfrastructureSection = ({limit=false}) => {
               {/* Image */}
               <div className={`${i % 2 === 1 ? "lg:col-start-2" : ""}`}>
 
-                <div className="rounded-2xl overflow-hidden shadow-xl bg-muted">
-                  <Image
+<div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl bg-muted">                  <Image
                     src={item.image}
                     fill
                     alt={item.title}

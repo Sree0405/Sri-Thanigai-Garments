@@ -11,6 +11,9 @@ import { getTestimonials } from "@/src/data/testimonial";
 
 import StructuredData from "@/src/seo/StructuredData";
 import type { Metadata } from "next";
+import {  getCategories} from "@/src/data/categories";
+import CollectionCard from "@/src/components/product/CollectionCard";
+import CollectionsIntro from "@/src/components/category/CollectionsIntro";
 
 export const metadata: Metadata = {
   title: "Sri Thanigai Garments | Garment Manufacturer in Chennai | Bulk Apparel Production",
@@ -76,7 +79,7 @@ export const metadata: Metadata = {
 export default async function Home() {
 
   const testimonials = await getTestimonials();
-
+  const categories = await getCategories();
   const heroSlides = [
     {
       tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
@@ -97,7 +100,27 @@ export default async function Home() {
         { value: "500K+", label: "Garments Produced" },
         { value: "100+", label: "Business Clients" }
       ]
-    }
+    },
+    // {
+    //   tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
+    //   highlight: "Sri Thanigai Garments",
+    //   description:
+    //     "Sri Thanigai Garments is a leading garment manufacturer in Chennai delivering high-quality apparel production for men, women and kids with advanced manufacturing infrastructure and strict quality control.",
+    //   backgroundImage: heroImage,
+    //   primaryCTA: {
+    //     text: "Explore Products",
+    //     link: "/products"
+    //   },
+    //   secondaryCTA: {
+    //     text: "Get a Quote",
+    //     link: "/contact"
+    //   },
+    //   metrics: [
+    //     { value: "10+", label: "Years Experience" },
+    //     { value: "500K+", label: "Garments Produced" },
+    //     { value: "100+", label: "Business Clients" }
+    //   ]
+    // }    
   ];
 
   return (
@@ -110,7 +133,27 @@ export default async function Home() {
         <HeroCarousel slides={heroSlides} />
 
         <MetricCounters />
+<section className="section-padding bg-background">
+  <div className="container-narrow">
 
+    <CollectionsIntro />
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {categories.map((category, i) => (
+        <CollectionCard
+          key={category.id}
+          title={category.name}
+          description={category.shortDescription}
+          image={category.image}
+          href={`/products/${category.slug}`}
+          ctaText="Explore Collection"
+          index={i}
+        />
+      ))}
+    </div>
+
+  </div>
+</section>
         <WhyChooseUs />
 
         <TestimonialSection testimonials={testimonials}/>
@@ -121,7 +164,6 @@ export default async function Home() {
 
       <Footer />
 
-      {/* SEO Structured Data */}
       <StructuredData />
 
     </div>

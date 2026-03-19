@@ -144,56 +144,58 @@ export default function HeroSection({
 
           {/* CTA */}
           {(primaryCTA || secondaryCTA) && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
-            >
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.2 }}
+  className="flex flex-row gap-3 sm:gap-4"
+>
 
-              {primaryCTA && (
-                <Link
-                  href={primaryCTA.link}
-                  className="
-                  inline-flex items-center justify-center gap-2
-                  bg-gradient-to-r from-primary to-indigo-600
-                  text-white
-                  px-6 py-3
-                  rounded-lg
-                  text-sm sm:text-base
-                  font-semibold
-                  hover:scale-[1.03]
-                  transition
-                  shadow-lg
-                "
-                >
-                  {primaryCTA.text}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              )}
+  {primaryCTA && (
+    <Link
+      href={primaryCTA.link}
+      className="
+        inline-flex items-center justify-center gap-2
+        bg-gradient-to-r from-primary to-indigo-600
+        text-white
+        px-6 py-3
+        w-1/2
+        rounded-lg
+        text-sm sm:text-base
+        font-semibold
+        hover:scale-[1.03]
+        transition
+        shadow-lg
+      "
+    >
+      {primaryCTA.text}
+      <ArrowRight className="w-4 h-4" />
+    </Link>
+  )}
 
-              {secondaryCTA && secondaryCTA.link && (
-                <Link
-                  href={secondaryCTA.link}
-                  className="
-                  inline-flex items-center justify-center gap-2
-                  border border-white/30
-                  backdrop-blur-md
-                  text-white
-                  px-6 py-3
-                  rounded-lg
-                  text-sm sm:text-base
-                  font-semibold
-                  hover:bg-white/10
-                  transition
-                "
-                >
-                  {secondaryCTA.text}
-                  <Phone className="w-4 h-4" />
-                </Link>
-              )}
+  {secondaryCTA && secondaryCTA.link && (
+    <Link
+      href={secondaryCTA.link}
+      className="
+        w-1/2
+        inline-flex items-center justify-center gap-2
+        border border-white/30
+        backdrop-blur-md
+        text-white
+        px-6 py-3
+        rounded-lg
+        text-sm sm:text-base
+        font-semibold
+        hover:bg-white/10
+        transition
+      "
+    >
+      {secondaryCTA.text}
+      <Phone className="w-4 h-4" />
+    </Link>
+  )}
 
-            </motion.div>
+</motion.div>
           )}
 
           {/* Metrics */}

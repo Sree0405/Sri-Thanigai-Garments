@@ -52,7 +52,7 @@ export default async function SubcategoryPage({ params }: Props) {
 
             <div className="flex items-center justify-between mb-12">
 
-              <h2 className="font-heading font-bold text-3xl text-foreground">
+              <h2 className="font-heading font-bold text-3xl md:text-4xl mt-4 mb-4 bg-gradient-to-r from-primary to-indigo-600 bg-clip-text text-transparent">
                 Product Collection
               </h2>
 

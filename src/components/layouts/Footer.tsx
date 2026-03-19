@@ -87,7 +87,6 @@ const Footer = () => {
             <div className="flex flex-col gap-4">
 
               {[
-                { label: "About", path: "/about" },
                 { label: "Manufacturing", path: "/manufacturing" },
                 { label: "Infrastructure", path: "/infrastructure" },
                 { label: "Gallery", path: "/gallery" },

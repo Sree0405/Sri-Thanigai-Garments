@@ -28,7 +28,7 @@ export default function BranchMapClient() {
 
         {/* MAP */}
 
-        <div className="rounded-3xl overflow-hidden border border-gray-200 h-[450px] shadow-lg">
+        <div style={{zIndex:40}} className="z-50 rounded-3xl overflow-hidden border border-gray-200 h-[450px] shadow-lg">
 
           <MapContainer
             center={[

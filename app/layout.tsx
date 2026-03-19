@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
+import FloatingButtons from "@/src/components/ScrollToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sri-thanigai-garments.vercel.app"),
@@ -112,6 +113,7 @@ export default function RootLayout({
       <body>
 
         {children}
+      <FloatingButtons />
 
         {/* Organization Schema */}
         <script
