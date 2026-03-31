@@ -6,7 +6,7 @@ export interface Category {
   shortDescription: string;
   image: string;
 }
-const DIRECTUS_URL = "https://directus-latest-butj.onrender.com";
+const DIRECTUS_URL = "https://srithanigai-garments-backend.onrender.com";
 
 export async function getCategories(): Promise<Category[]> {
 

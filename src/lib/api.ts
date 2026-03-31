@@ -1,7 +1,7 @@
 import { createDirectus, rest } from '@directus/sdk';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export const DIRECTUS_URL:string = "https://directus-latest-butj.onrender.com";
+export const DIRECTUS_URL:string = "https://srithanigai-garments-backend.onrender.com";
 export const directus = createDirectus(DIRECTUS_URL).with(rest());
 export const getAssetUrl = (id:string)=>{
   return `${DIRECTUS_URL}/assets/${id}`;

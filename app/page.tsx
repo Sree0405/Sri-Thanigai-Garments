@@ -101,26 +101,26 @@ export default async function Home() {
         { value: "100+", label: "Business Clients" }
       ]
     },
-    // {
-    //   tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
-    //   highlight: "Sri Thanigai Garments",
-    //   description:
-    //     "Sri Thanigai Garments is a leading garment manufacturer in Chennai delivering high-quality apparel production for men, women and kids with advanced manufacturing infrastructure and strict quality control.",
-    //   backgroundImage: heroImage,
-    //   primaryCTA: {
-    //     text: "Explore Products",
-    //     link: "/products"
-    //   },
-    //   secondaryCTA: {
-    //     text: "Get a Quote",
-    //     link: "/contact"
-    //   },
-    //   metrics: [
-    //     { value: "10+", label: "Years Experience" },
-    //     { value: "500K+", label: "Garments Produced" },
-    //     { value: "100+", label: "Business Clients" }
-    //   ]
-    // }    
+    {
+      tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
+      highlight: "Sri Thanigai Garments",
+      description:
+        "Sri Thanigai Garments is a leading garment manufacturer in Chennai delivering high-quality apparel production for men, women and kids with advanced manufacturing infrastructure and strict quality control.",
+      backgroundImage: heroImage,
+      primaryCTA: {
+        text: "Explore Products",
+        link: "/products"
+      },
+      secondaryCTA: {
+        text: "Get a Quote",
+        link: "/contact"
+      },
+      metrics: [
+        { value: "10+", label: "Years Experience" },
+        { value: "500K+", label: "Garments Produced" },
+        { value: "100+", label: "Business Clients" }
+      ]
+    }    
   ];
 
   return (

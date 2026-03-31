@@ -1,4 +1,4 @@
-const DIRECTUS_URL = "https://directus-latest-butj.onrender.com";
+const DIRECTUS_URL = "https://srithanigai-garments-backend.onrender.com";
 
 export interface Testimonial {
   id: number;

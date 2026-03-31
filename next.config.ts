@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "directus-latest-butj.onrender.com",
+        hostname: "srithanigai-garments-backend.onrender.com",
         pathname: "/assets/**",
       },
     ],
