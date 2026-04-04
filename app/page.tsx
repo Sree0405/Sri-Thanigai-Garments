@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   creator: "Sri Thanigai Garments",
   publisher: "Sri Thanigai Garments",
 
-  metadataBase: new URL("https://sri-thanigai-garments.vercel.app"),
+  metadataBase: new URL("https://www.srithanigaigarments.com"),
 
   alternates: {
     canonical: "/",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "Sri Thanigai Garments | Premium Apparel Manufacturing",
     description:
       "Leading garment manufacturer in Chennai delivering high-quality apparel production with modern infrastructure and strict quality control.",
-    url: "https://sri-thanigai-garments.vercel.app",
+    url: "https://www.srithanigaigarments.com",
     siteName: "Sri Thanigai Garments",
     images: [
       {
@@ -103,7 +103,7 @@ export default async function Home() {
     },
     {
       tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
-      highlight: "Sri Thanigai Garments",
+      highlight: "Sri Thanigai Garments Garments Garments",
       description:
         "Sri Thanigai Garments is a leading garment manufacturer in Chennai delivering high-quality apparel production for men, women and kids with advanced manufacturing infrastructure and strict quality control.",
       backgroundImage: heroImage,
@@ -144,7 +144,7 @@ export default async function Home() {
           key={category.id}
           title={category.name}
           description={category.shortDescription}
-          image={category.image}
+          image={category.image ?? undefined}
           href={`/products/${category.slug}`}
           ctaText="Explore Collection"
           index={i}

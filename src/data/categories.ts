@@ -1,12 +1,41 @@
+import { DIRECTUS_URL, getDirectusAssetUrl } from "@/src/lib/api";
+
 export interface Category {
-  id: string;
+  id: number | string;
   name: string;
   slug: string;
   description: string;
   shortDescription: string;
-  image: string;
+  /** Directus `assets/{uuid}` URL when `image` is a files UUID */
+  image: string | null;
+  /**
+   * Key for static `subcategories.ts` (`mens` | `womens` | `kids`), derived from slug.
+   */
+  subcategoryGroupId: string;
 }
-const DIRECTUS_URL = "https://srithanigai-garments-backend.onrender.com";
+
+/** Maps Directus category slug → id used in local subcategory definitions */
+function subcategoryGroupFromSlug(slug: string): string {
+  if (slug.startsWith("mens")) return "mens";
+  if (slug.startsWith("womens")) return "womens";
+  if (slug.startsWith("kids")) return "kids";
+  return slug;
+}
+
+function mapCategoryRow(item: Record<string, unknown>): Category {
+  const slug = item.slug as string;
+  return {
+    id: item.id as number | string,
+    name: item.name as string,
+    slug,
+    description: item.description as string,
+    shortDescription: item.short_description as string,
+    image: getDirectusAssetUrl(
+      typeof item.image === "string" ? item.image : null
+    ),
+    subcategoryGroupId: subcategoryGroupFromSlug(slug),
+  };
+}
 
 export async function getCategories(): Promise<Category[]> {
 
@@ -19,16 +48,9 @@ export async function getCategories(): Promise<Category[]> {
 
   const json = await res.json();
 
-  return json.data.map((item: any) => ({
-    id: item.id,
-    name: item.name,
-    slug: item.slug,
-    description: item.description,
-    shortDescription: item.short_description,
-    image: item.image
-  }));
+  return json.data.map((item: Record<string, unknown>) => mapCategoryRow(item));
 }
-export  const categories = await getCategories();
+export const categories = await getCategories();
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
 
   const res = await fetch(
@@ -42,14 +64,7 @@ export async function getCategoryBySlug(slug: string): Promise<Category | null> 
 
   if (!json.data.length) return null;
 
-  const item = json.data[0];
+  const item = json.data[0] as Record<string, unknown>;
 
-  return {
-    id: item.id,
-    name: item.name,
-    slug: item.slug,
-    description: item.description,
-    shortDescription: item.short_description,
-    image: item.image
-  };
+  return mapCategoryRow(item);
 }

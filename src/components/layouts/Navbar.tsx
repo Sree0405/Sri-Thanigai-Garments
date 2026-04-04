@@ -120,7 +120,9 @@ const handleMouseEnter = () => {
                       <div className="p-3">
 
                         {categories.map((cat) => {
-                          const subs = getSubcategoriesByCategory(cat.id);
+                          const subs = getSubcategoriesByCategory(
+                            cat.subcategoryGroupId
+                          );
 
                           return (
                             <div key={cat.id} className="mb-2">

@@ -61,7 +61,7 @@ export default async function Products() {
           key={category.id}
           title={category.name}
           description={category.shortDescription}
-          image={category.image}
+          image={category.image ?? undefined}
           href={`/products/${category.slug}`}
           ctaText="Explore Collection"
           index={i}

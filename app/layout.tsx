@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import FloatingButtons from "@/src/components/ScrollToTop";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sri-thanigai-garments.vercel.app"),
+  metadataBase: new URL("https://www.srithanigaigarments.com"),
 
   title: {
     default: "Sri Thanigai Garments | Garment Manufacturer in Chennai",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Sri Thanigai Garments | Premium Garment Manufacturer",
     description:
       "Leading garment manufacturer in Chennai delivering high-quality apparel production with modern infrastructure and strict quality control.",
-    url: "https://sri-thanigai-garments.vercel.app",
+    url: "https://www.srithanigaigarments.com",
     siteName: "Sri Thanigai Garments",
     images: [
       {
@@ -78,8 +78,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Sri Thanigai Garments",
-    url: "https://sri-thanigai-garments.vercel.app",
-    logo: "https://sri-thanigai-garments.vercel.app/logo.png",
+    url: "https://www.srithanigaigarments.com",
+    logo: "https://www.srithanigaigarments.com/logo.png",
     description:
       "Sri Thanigai Garments is a premium garment manufacturing company in Chennai specializing in high-quality apparel production.",
     address: {
@@ -100,11 +100,11 @@ export default function RootLayout({
     "@type": "SiteNavigationElement",
     name: ["Home", "Products", "Manufacturing", "Gallery", "Contact"],
     url: [
-      "https://sri-thanigai-garments.vercel.app/",
-      "https://sri-thanigai-garments.vercel.app/products",
-      "https://sri-thanigai-garments.vercel.app/manufacturing",
-      "https://sri-thanigai-garments.vercel.app/gallery",
-      "https://sri-thanigai-garments.vercel.app/contact",
+      "https://www.srithanigaigarments.com/",
+      "https://www.srithanigaigarments.com/products",
+      "https://www.srithanigaigarments.com/manufacturing",
+      "https://www.srithanigaigarments.com/gallery",
+      "https://www.srithanigaigarments.com/contact",
     ],
   };
 

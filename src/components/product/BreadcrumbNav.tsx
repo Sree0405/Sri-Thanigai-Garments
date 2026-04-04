@@ -13,14 +13,16 @@ interface Props {
 export default function BreadcrumbNav({ items }: Props) {
 
   return (
-    <nav className="flex items-center text-sm text-muted-foreground mb-6">
-
+    <nav
+      aria-label="Breadcrumb"
+      className="flex items-center text-xs sm:text-sm text-muted-foreground mb-5 sm:mb-6 -mx-1 px-1 overflow-x-auto overflow-y-hidden gap-y-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+    >
       {items.map((item, index) => {
 
         const isLast = index === items.length - 1;
 
         return (
-          <span key={index} className="flex items-center">
+          <span key={index} className="flex items-center whitespace-nowrap shrink-0">
 
             {item.href && !isLast ? (
               <Link

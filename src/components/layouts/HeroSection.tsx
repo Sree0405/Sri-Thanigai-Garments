@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import BreadcrumbNav from "@/src/components/BreadcrumbNav";
 import Image from "next/image";
+import { cn } from "@/src/lib/utils";
 
 interface Breadcrumb {
   label: string
@@ -31,6 +32,8 @@ interface HeroSectionProps {
   primaryCTA?: CTA
   secondaryCTA?: CTA
   metrics?: Metric[]
+  /** Shorter hero on small screens — useful for product listing pages */
+  compact?: boolean
 }
 
 export default function HeroSection({
@@ -43,10 +46,17 @@ export default function HeroSection({
   primaryCTA,
   secondaryCTA,
   metrics = [],
+  compact = false,
 }: HeroSectionProps) {
 
   return (
-    <section className="relative min-h-[65vh] md:min-h-[80vh] flex items-center overflow-hidden">
+    <section
+      className={
+        compact
+          ? "relative min-h-[42vh] sm:min-h-[52vh] md:min-h-[72vh] lg:min-h-[80vh] flex items-center overflow-hidden"
+          : "relative min-h-[65vh] md:min-h-[80vh] flex items-center overflow-hidden"
+      }
+    >
 
       {/* Background */}
       <div className="absolute inset-0 -z-10">
@@ -64,7 +74,13 @@ export default function HeroSection({
 
       </div>
 
-      <div className="container-narrow pt-28 md:pt-36 pb-16 md:pb-24">
+      <div
+        className={
+          compact
+            ? "container-narrow pt-24 sm:pt-28 md:pt-36 pb-10 sm:pb-14 md:pb-24"
+            : "container-narrow pt-28 md:pt-36 pb-24 md:pb-28"
+        }
+      >
 
         <div className="max-w-2xl">
 
@@ -108,13 +124,11 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="
-              font-heading font-bold
-              text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-              leading-tight
-              text-white
-              mb-4
-            "
+            className={
+              compact
+                ? "font-heading font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white mb-3 sm:mb-4"
+                : "font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white mb-4"
+            }
           >
             {title}{" "}
             {highlight && (
@@ -144,58 +158,47 @@ export default function HeroSection({
 
           {/* CTA */}
           {(primaryCTA || secondaryCTA) && (
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.2 }}
-  className="flex flex-row gap-3 sm:gap-4"
->
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className={cn(
+                "flex w-full max-w-xl flex-col gap-3 sm:flex-row sm:gap-4",
+                primaryCTA && secondaryCTA?.link && "sm:items-stretch"
+              )}
+            >
+              {primaryCTA && (
+                <Link
+                  href={primaryCTA.link}
+                  className={cn(
+                    "inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-lg",
+                    "bg-gradient-to-r from-primary to-indigo-600 px-5 py-3 text-sm font-semibold",
+                    "text-white shadow-lg transition hover:scale-[1.02] sm:px-6 sm:text-base",
+                    secondaryCTA?.link ? "sm:flex-1" : "sm:w-auto"
+                  )}
+                >
+                  <span className="truncate">{primaryCTA.text}</span>
+                  <ArrowRight
+                    className="h-4 w-4 shrink-0"
+                    aria-hidden
+                  />
+                </Link>
+              )}
 
-  {primaryCTA && (
-    <Link
-      href={primaryCTA.link}
-      className="
-        inline-flex items-center justify-center gap-2
-        bg-gradient-to-r from-primary to-indigo-600
-        text-white
-        px-6 py-3
-        w-1/2
-        rounded-lg
-        text-sm sm:text-base
-        font-semibold
-        hover:scale-[1.03]
-        transition
-        shadow-lg
-      "
-    >
-      {primaryCTA.text}
-      <ArrowRight className="w-4 h-4" />
-    </Link>
-  )}
-
-  {secondaryCTA && secondaryCTA.link && (
-    <Link
-      href={secondaryCTA.link}
-      className="
-        w-1/2
-        inline-flex items-center justify-center gap-2
-        border border-white/30
-        backdrop-blur-md
-        text-white
-        px-6 py-3
-        rounded-lg
-        text-sm sm:text-base
-        font-semibold
-        hover:bg-white/10
-        transition
-      "
-    >
-      {secondaryCTA.text}
-      <Phone className="w-4 h-4" />
-    </Link>
-  )}
-
-</motion.div>
+              {secondaryCTA && secondaryCTA.link && (
+                <Link
+                  href={secondaryCTA.link}
+                  className={cn(
+                    "inline-flex w-full min-w-0 items-center justify-center gap-2 rounded-lg",
+                    "border border-white/35 bg-white/5 px-5 py-3 text-sm font-semibold",
+                    "text-white backdrop-blur-md transition hover:bg-white/10 sm:flex-1 sm:px-6 sm:text-base"
+                  )}
+                >
+                  <span className="truncate">{secondaryCTA.text}</span>
+                  <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                </Link>
+              )}
+            </motion.div>
           )}
 
           {/* Metrics */}
@@ -247,13 +250,13 @@ export default function HeroSection({
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://sri-thanigai-garments.vercel.app"
+                "item": "https://www.srithanigaigarments.com"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Contact",
-                "item": "https://sri-thanigai-garments.vercel.app/contact"
+                "item": "https://www.srithanigaigarments.com/contact"
               }
             ]
           })

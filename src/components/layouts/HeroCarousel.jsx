@@ -14,12 +14,12 @@ const HeroCarousel = ({ slides }) => {
   return (
     <Swiper
       modules={[Autoplay, Pagination, Navigation, EffectFade]}
-      autoplay={{ delay: 5000 }}
-      pagination={{ clickable: true }}
+      autoplay={{ delay: 5000, pauseOnMouseEnter: true }}
+      pagination={{ clickable: true, dynamicBullets: true }}
       navigation
       effect="fade"
-      loop
-      className="w-full"
+      loop={slides.length > 1}
+      className="hero-carousel w-full"
     >
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>

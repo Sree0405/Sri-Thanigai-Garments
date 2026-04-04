@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://sri-thanigai-garments.vercel.app/sitemap.xml",
+    sitemap: "https://www.srithanigaigarments.com/sitemap.xml",
   };
 }

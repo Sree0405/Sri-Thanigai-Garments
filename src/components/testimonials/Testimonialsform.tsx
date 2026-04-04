@@ -1,16 +1,27 @@
 "use client";
 
 import { useState } from "react";
-import { Star } from "lucide-react";
+import { Check, Loader2, Star } from "lucide-react";
+
 import { submitTestimonials } from "@/src/services/contactService";
+import { Input } from "@/src/components/ui/input";
+import { Textarea } from "@/src/components/ui/textarea";
+import { Label } from "@/src/components/ui/label";
+import { Separator } from "@/src/components/ui/separator";
+import { cn } from "@/src/lib/utils";
+
+const highlights = [
+  "Premium garment manufacturing",
+  "Trusted partner for global brands",
+  "Consistent quality and delivery",
+];
 
 const TestimonialForm = () => {
-
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     rating: 5,
-    testimonial: ""
+    testimonial: "",
   });
 
   const [hover, setHover] = useState(0);
@@ -20,33 +31,25 @@ const TestimonialForm = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
-
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-
     e.preventDefault();
 
     try {
-
       setLoading(true);
-
       await submitTestimonials(formData);
-
       setSuccess(true);
-
       setFormData({
         name: "",
         company: "",
         rating: 5,
-        testimonial: ""
+        testimonial: "",
       });
-
     } catch (error) {
       console.error(error);
     }
@@ -55,183 +58,153 @@ const TestimonialForm = () => {
   };
 
   return (
-    <section className="pt-28 px-4 bg-white">
+    <div className="w-full">
+      <Separator className="opacity-60" />
 
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-
-        {/* LEFT SIDE CONTENT */}
-
-        <div>
-
-          <h2 className="
-          text-3xl md:text-4xl font-semibold leading-tight
-          bg-gradient-to-r from-primary to-indigo-600
-          bg-clip-text text-transparent
-          ">
-            Share Your Experience
+      <div className="grid gap-10 pt-10 sm:gap-12 sm:pt-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:items-start lg:gap-16">
+        <header className="max-w-md lg:pt-1">
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+            Client feedback
+          </p>
+          <h2 className="font-heading mt-2 text-2xl font-bold leading-tight text-foreground sm:text-3xl">
+            Share your experience
           </h2>
-
-          <p className="mt-4 text-gray-600 max-w-md">
-            Your feedback helps us improve our garment manufacturing
-            services and build stronger partnerships with global brands.
-            Tell us about your experience working with us.
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Your feedback helps us improve our manufacturing services and
+            strengthen partnerships. Brief details are enough—we read every
+            submission.
           </p>
 
-          <div className="mt-8 space-y-3 text-sm text-gray-500">
-
-            <p>✔ Premium garment manufacturing</p>
-            <p>✔ Trusted export partner for global brands</p>
-            <p>✔ Consistent quality and delivery</p>
-
-          </div>
-
-        </div>
-
-        {/* RIGHT SIDE FORM */}
+          <ul className="mt-6 space-y-2.5">
+            {highlights.map((line) => (
+              <li
+                key={line}
+                className="flex items-start gap-2.5 text-sm text-muted-foreground"
+              >
+                <Check
+                  className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                  strokeWidth={2.5}
+                  aria-hidden
+                />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </header>
 
         <form
           onSubmit={handleSubmit}
-          className="
-          bg-white
-          rounded-3xl
-          p-8
-          shadow-[0_25px_80px_rgba(0,0,0,0.08)]
-          border border-gray-100
-          space-y-5
-          "
+          className="flex flex-col gap-5 lg:border-l lg:border-border/70 lg:pl-10"
         >
+          <div className="space-y-2">
+            <Label htmlFor="testimonial-name">Name</Label>
+            <Input
+              id="testimonial-name"
+              type="text"
+              name="name"
+              placeholder="Full name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              autoComplete="name"
+            />
+          </div>
 
-          {/* Name */}
+          <div className="space-y-2">
+            <Label htmlFor="testimonial-company">Company</Label>
+            <Input
+              id="testimonial-company"
+              type="text"
+              name="company"
+              placeholder="Company or brand name"
+              value={formData.company}
+              onChange={handleChange}
+              required
+              autoComplete="organization"
+            />
+          </div>
 
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="
-            w-full
-            border border-gray-200
-            rounded-lg
-            px-4 py-2.5
-            text-sm
-            focus:outline-none
-            focus:ring-2
-            focus:ring-primary/30
-            "
-          />
-
-          {/* Company */}
-
-          <input
-            type="text"
-            name="company"
-            placeholder="Company Name"
-            value={formData.company}
-            onChange={handleChange}
-            required
-            className="
-            w-full
-            border border-gray-200
-            rounded-lg
-            px-4 py-2.5
-            text-sm
-            focus:outline-none
-            focus:ring-2
-            focus:ring-primary/30
-            "
-          />
-
-          {/* Star Rating */}
-
-          <div>
-
-            <label className="text-sm text-gray-600 block mb-2">
-              Your Rating
-            </label>
-
-            <div className="flex gap-2">
-
-              {[1,2,3,4,5].map((star)=>(
+          <div className="space-y-2">
+            <Label id="rating-label">Rating</Label>
+            <div
+              className="flex gap-1"
+              role="group"
+              aria-labelledby="rating-label"
+            >
+              {[1, 2, 3, 4, 5].map((star) => (
                 <button
                   key={star}
                   type="button"
-                  onClick={()=>setFormData({...formData,rating:star})}
-                  onMouseEnter={()=>setHover(star)}
-                  onMouseLeave={()=>setHover(0)}
-                  className="transition hover:scale-110"
+                  onClick={() =>
+                    setFormData({ ...formData, rating: star })
+                  }
+                  onMouseEnter={() => setHover(star)}
+                  onMouseLeave={() => setHover(0)}
+                  className={cn(
+                    "rounded-md p-1 transition-transform hover:scale-105",
+                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  )}
+                  aria-label={`${star} star${star > 1 ? "s" : ""}`}
+                  aria-pressed={formData.rating === star}
                 >
                   <Star
-                    size={24}
-                    className={
+                    className={cn(
+                      "h-6 w-6 sm:h-7 sm:w-7",
                       star <= (hover || formData.rating)
-                      ? "fill-yellow-400 text-yellow-400"
-                      : "text-gray-300"
-                    }
+                        ? "fill-amber-400 text-amber-400"
+                        : "text-muted-foreground/35"
+                    )}
+                    aria-hidden
                   />
                 </button>
               ))}
-
             </div>
-
           </div>
 
-          {/* Testimonial */}
-
-          <textarea
-            name="testimonial"
-            rows={3}
-            placeholder="Write your testimonial..."
-            value={formData.testimonial}
-            onChange={handleChange}
-            required
-            className="
-            w-full
-            border border-gray-200
-            rounded-lg
-            px-4 py-2.5
-            text-sm
-            resize-none
-            focus:outline-none
-            focus:ring-2
-            focus:ring-primary/30
-            "
-          />
-
-          {/* Submit Button */}
+          <div className="space-y-2">
+            <Label htmlFor="testimonial-body">Testimonial</Label>
+            <Textarea
+              id="testimonial-body"
+              name="testimonial"
+              rows={4}
+              placeholder="How was your experience working with us?"
+              value={formData.testimonial}
+              onChange={handleChange}
+              required
+              className="min-h-[120px] resize-y"
+            />
+          </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="
-            w-full
-            bg-gradient-to-r
-            from-primary
-            to-indigo-600
-            text-white
-            py-2.5
-            rounded-xl
-            font-semibold
-            shadow-md
-            hover:opacity-90
-            transition
-            "
+            className={cn(
+              "inline-flex h-11 w-full items-center justify-center gap-2 rounded-lg",
+              "bg-gradient-to-r from-primary to-indigo-600 text-sm font-semibold text-primary-foreground",
+              "shadow-sm transition hover:opacity-95 disabled:pointer-events-none disabled:opacity-60"
+            )}
           >
-            {loading ? "Submitting..." : "Submit Testimonial"}
+            {loading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" aria-hidden />
+                Submitting…
+              </>
+            ) : (
+              "Submit testimonial"
+            )}
           </button>
 
           {success && (
-            <p className="text-green-600 text-sm text-center">
-              Thank you! Your testimonial has been submitted.
+            <p
+              className="text-center text-sm text-primary"
+              role="status"
+            >
+              Thank you. Your testimonial has been received.
             </p>
           )}
-
         </form>
-
       </div>
-
-    </section>
+    </div>
   );
 };
 

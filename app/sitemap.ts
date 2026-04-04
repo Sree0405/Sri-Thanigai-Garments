@@ -1,19 +1,19 @@
 export default function sitemap() {
   return [
     {
-      url: "https://sri-thanigai-garments.vercel.app",
+      url: "https://www.srithanigaigarments.com",
       lastModified: new Date(),
     },
     {
-      url: "https://sri-thanigai-garments.vercel.app/products",
+      url: "https://www.srithanigaigarments.com/products",
       lastModified: new Date(),
     },
     {
-      url: "https://sri-thanigai-garments.vercel.app/manufacturing",
+      url: "https://www.srithanigaigarments.com/manufacturing",
       lastModified: new Date(),
     },
     {
-      url: "https://sri-thanigai-garments.vercel.app/contact",
+      url: "https://www.srithanigaigarments.com/contact",
       lastModified: new Date(),
     },
   ];

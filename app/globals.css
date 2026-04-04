@@ -232,4 +232,144 @@
     @apply bg-card rounded-xl border border-border shadow-sm hover:shadow-lg transition;
   }
 
+  /* Testimonials — Swiper */
+  .testimonial-swiper.swiper {
+    overflow: visible;
+  }
+
+  .testimonial-swiper .swiper-slide {
+    height: auto;
+    box-sizing: border-box;
+  }
+
+  .testimonial-swiper .swiper-button-prev,
+  .testimonial-swiper .swiper-button-next {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 9999px;
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    color: hsl(var(--primary));
+  }
+
+  .testimonial-swiper .swiper-button-prev:hover,
+  .testimonial-swiper .swiper-button-next:hover {
+    background: hsl(var(--muted));
+  }
+
+  .testimonial-swiper .swiper-button-prev:after,
+  .testimonial-swiper .swiper-button-next:after {
+    font-size: 0.65rem;
+    font-weight: 700;
+  }
+
+  .testimonial-swiper .swiper-button-prev {
+    left: 0;
+  }
+
+  .testimonial-swiper .swiper-button-next {
+    right: 0;
+  }
+
+  @media (max-width: 639px) {
+    .testimonial-swiper .swiper-button-prev,
+    .testimonial-swiper .swiper-button-next {
+      display: none;
+    }
+  }
+
+  .testimonial-swiper .swiper-pagination {
+    bottom: 0;
+  }
+
+  .testimonial-swiper .swiper-pagination-bullet {
+    background: hsl(var(--muted-foreground) / 0.35);
+    opacity: 1;
+    width: 0.45rem;
+    height: 0.45rem;
+  }
+
+  .testimonial-swiper .swiper-pagination-bullet-active {
+    background: hsl(var(--primary));
+    transform: scale(1.15);
+  }
+
+  /* Hero carousel — keep arrows off small screens; style on desktop */
+  .hero-carousel {
+    --swiper-navigation-size: 1.1rem;
+  }
+
+  .hero-carousel .swiper-button-prev,
+  .hero-carousel .swiper-button-next {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .hero-carousel .swiper-button-prev:hover,
+  .hero-carousel .swiper-button-next:hover {
+    background: rgba(255, 255, 255, 0.24);
+  }
+
+  .hero-carousel .swiper-button-prev:after,
+  .hero-carousel .swiper-button-next:after {
+    font-size: 0.55rem;
+    font-weight: 800;
+  }
+
+  .hero-carousel .swiper-button-prev {
+    left: 0.75rem;
+  }
+
+  .hero-carousel .swiper-button-next {
+    right: 0.75rem;
+  }
+
+  @media (max-width: 1023px) {
+    .hero-carousel .swiper-button-prev,
+    .hero-carousel .swiper-button-next {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-carousel .swiper-button-prev {
+      left: 1rem;
+    }
+
+    .hero-carousel .swiper-button-next {
+      right: 1rem;
+    }
+  }
+
+  .hero-carousel .swiper-pagination {
+    bottom: max(1rem, env(safe-area-inset-bottom)) !important;
+    padding: 0 0.75rem;
+  }
+
+  .hero-carousel .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.45);
+    opacity: 1;
+    width: 0.45rem;
+    height: 0.45rem;
+  }
+
+  .hero-carousel .swiper-pagination-bullet-active {
+    background: #fff;
+    transform: scale(1.2);
+  }
+
 }

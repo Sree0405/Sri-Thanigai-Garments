@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   creator: "Sri Thanigai Garments",
   publisher: "Sri Thanigai Garments",
 
-  metadataBase: new URL("https://sri-thanigai-garments.vercel.app"),
+  metadataBase: new URL("https://www.srithanigaigarments.com"),
 
   alternates: {
     canonical: "/contact",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: "Contact Sri Thanigai Garments | Apparel Manufacturing Company",
     description:
       "Get in touch with Sri Thanigai Garments for bulk garment manufacturing inquiries, quotes, and partnership opportunities.",
-    url: "https://sri-thanigai-garments.vercel.app/contact",
+    url: "https://www.srithanigaigarments.com/contact",
     siteName: "Sri Thanigai Garments",
     images: [
       {
@@ -115,12 +115,12 @@ export default function Contact() {
       "@context": "https://schema.org",
       "@type": "ContactPage",
       name: "Contact Sri Thanigai Garments",
-      url: "https://sri-thanigai-garments.vercel.app/contact",
+      url: "https://www.srithanigaigarments.com/contact",
       mainEntity: {
         "@type": "Organization",
         name: "Sri Thanigai Garments",
-        url: "https://sri-thanigai-garments.vercel.app",
-        logo: "https://sri-thanigai-garments.vercel.app/logo.png",
+        url: "https://www.srithanigaigarments.com",
+        logo: "https://www.srithanigaigarments.com/logo.png",
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "customer support",

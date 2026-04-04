@@ -13,7 +13,7 @@ import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{
-    category: string;
+    subcategory: string;
     product: string;
   }>;
 };
@@ -25,7 +25,7 @@ type Props = {
 
 //   if (!productData) return {};
 
-//   const url = `https://sri-thanigai-garments.vercel.app/products/${productData.category.slug}/${productData.slug}`;
+//   const url = `https://www.srithanigaigarments.com/products/${productData.category.slug}/${productData.slug}`;
 
 //   return {
 //     title: `${productData.name} | Garment Manufacturer Chennai | Sri Thanigai Garments`,
@@ -74,13 +74,12 @@ type Props = {
 // }
 export default async function ProductDetail({ params }: Props) {
 
-  const { category, product } = await params;
+  const { subcategory, product } = await params;
 
   const productData = await getProductBySlug(product);
-  console.log(productData)
   if (!productData) return notFound();
 
-  const related = await getProductsByCategorySlug(category);
+  const related = await getProductsByCategorySlug(subcategory);
 
   const relatedProducts = related
     .filter((p: any) => p.slug !== product)
@@ -93,7 +92,7 @@ export default async function ProductDetail({ params }: Props) {
 
       <main>
 
-        <section className="section-padding md:mt-0 mt-10 bg-background">
+        <section className="pt-24 pb-12 mt-10 sm:pt-10 sm:pb-16 md:pt-12 md:pb-20 lg:pb-24 bg-background md:mt-0 mt-8">
 
           <div className="container-narrow">
 
@@ -109,10 +108,12 @@ export default async function ProductDetail({ params }: Props) {
               ]}
             />
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 xl:gap-16 items-start">
               <ProductGallery product={productData} />
 
-              <ProductInfo product={productData} />
+              <div className="min-w-0 lg:pt-1">
+                <ProductInfo product={productData} />
+              </div>
 
             </div>
 

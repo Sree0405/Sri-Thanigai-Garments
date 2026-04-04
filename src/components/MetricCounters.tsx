@@ -6,7 +6,7 @@ import { Factory, Cog, ShieldCheck } from "lucide-react";
 
 const metrics = [
   { icon: Factory, value: 15000, suffix: "+", label: "Monthly Production Capacity" },
-  { icon: Cog, value: 20, suffix: "+", label: "Industrial Machines" },
+  { icon: Cog, value: 80, suffix: "+", label: "Industrial Machines" },
   { icon: ShieldCheck, value: 100, suffix: "%", label: "Quality Inspection" },
 ];
 
