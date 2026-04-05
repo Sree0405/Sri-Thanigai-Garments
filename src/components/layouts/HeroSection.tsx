@@ -31,6 +31,8 @@ interface HeroSectionProps {
   breadcrumbs?: Breadcrumb[]
   primaryCTA?: CTA
   secondaryCTA?: CTA
+  /** Icon for secondary CTA — `arrow` for navigation-style actions (e.g. view collection) */
+  secondaryCTAVariant?: "phone" | "arrow"
   metrics?: Metric[]
   /** Shorter hero on small screens — useful for product listing pages */
   compact?: boolean
@@ -45,6 +47,7 @@ export default function HeroSection({
   breadcrumbs = [],
   primaryCTA,
   secondaryCTA,
+  secondaryCTAVariant = "phone",
   metrics = [],
   compact = false,
 }: HeroSectionProps) {
@@ -195,7 +198,11 @@ export default function HeroSection({
                   )}
                 >
                   <span className="truncate">{secondaryCTA.text}</span>
-                  <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                  {secondaryCTAVariant === "arrow" ? (
+                    <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+                  ) : (
+                    <Phone className="h-4 w-4 shrink-0" aria-hidden />
+                  )}
                 </Link>
               )}
             </motion.div>

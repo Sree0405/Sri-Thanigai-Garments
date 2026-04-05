@@ -12,21 +12,23 @@ import HeroSection from "./HeroSection";
 
 const HeroCarousel = ({ slides }) => {
   return (
-    <Swiper
-      modules={[Autoplay, Pagination, Navigation, EffectFade]}
-      autoplay={{ delay: 5000, pauseOnMouseEnter: true }}
-      pagination={{ clickable: true, dynamicBullets: true }}
-      navigation
-      effect="fade"
-      loop={slides.length > 1}
-      className="hero-carousel w-full"
-    >
-      {slides.map((slide, index) => (
-        <SwiperSlide key={index}>
-          <HeroSection {...slide} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="w-full max-w-[100vw] overflow-x-clip">
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation, EffectFade]}
+        autoplay={{ delay: 5000, pauseOnMouseEnter: true }}
+        pagination={{ clickable: true, dynamicBullets: true }}
+        navigation
+        effect="fade"
+        loop={slides.length > 1}
+        className="hero-carousel w-full max-w-full"
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide key={index} className="!box-border">
+            <HeroSection {...slide} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 };
 

@@ -34,36 +34,36 @@ const handleMouseEnter = () => {
   };
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full px-4 flex justify-center">
-
-      {/* Floating Glass Container */}
-      <div
-        className={`
-        flex items-center justify-between
-        w-full max-w-6xl
-        px-6 py-3
-        rounded-full
-        backdrop-blur-2xl
-        border
-        shadow-[0_20px_60px_rgba(0,0,0,0.15)]
-        transition-all duration-500
-        bg-white/50 border-white/30 text-black
-      `}
-      >
+    <header className="fixed top-3 left-0 right-0 z-50 px-3 sm:top-6 sm:px-4">
+      <div className="relative mx-auto w-full max-w-6xl">
+        {/* Floating bar — single row; mobile menu is NOT a flex sibling (prevents horizontal overflow) */}
+        <div
+          className={`
+          flex min-w-0 items-center justify-between gap-2
+          w-full max-w-full
+          px-4 py-2.5 sm:px-6 sm:py-3
+          rounded-full
+          backdrop-blur-2xl
+          border
+          shadow-[0_20px_60px_rgba(0,0,0,0.15)]
+          transition-all duration-500
+          bg-white/50 border-white/30 text-black
+        `}
+        >
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+        <Link href="/" className="group flex min-w-0 shrink items-center gap-2 sm:gap-3">
 
           <div className="relative w-10 h-10 rounded-full bg-gradient-to-br from-primary to-indigo-500 flex items-center justify-center shadow-lg group-hover:scale-105 transition">
             <span className="text-white font-bold">S</span>
             <span className="absolute inset-0 rounded-full bg-primary/40 blur-md opacity-40 group-hover:opacity-70"></span>
           </div>
 
-          <div className="leading-tight">
-            <span className="font-bold block">
+          <div className="min-w-0 leading-tight">
+            <span className="block truncate font-bold">
               Sri Thanigai
             </span>
-            <span className="text-[11px] tracking-[0.2em] uppercase opacity-70">
+            <span className="block truncate text-[10px] tracking-[0.18em] uppercase opacity-70 sm:text-[11px] sm:tracking-[0.2em]">
               Garments
             </span>
           </div>
@@ -134,7 +134,7 @@ const handleMouseEnter = () => {
                                 {cat.name}
                               </Link>
 
-                              <div className="pl-4 space-y-0.5">
+                              {/* <div className="pl-4 space-y-0.5">
 
                                 {subs.map((sub) => (
                                   <Link
@@ -146,7 +146,7 @@ const handleMouseEnter = () => {
                                   </Link>
                                 ))}
 
-                              </div>
+                              </div> */}
 
                             </div>
                           );
@@ -205,30 +205,30 @@ const handleMouseEnter = () => {
 
         {/* Mobile Toggle */}
         <button
+          type="button"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden"
+          className="shrink-0 rounded-full p-1.5 text-foreground transition hover:bg-black/5 lg:hidden"
         >
-          {isOpen ? <X size={26} /> : <Menu size={26} />}
+          {isOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
         </button>
 
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu: anchored below bar, full container width (no extra row width) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 10 }}
-            exit={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
             className="
-            absolute top-20
-            w-[90%]
-            backdrop-blur-xl
-            bg-white/90
-            border border-white/20
-            rounded-3xl
-            p-6
-            shadow-xl
+            absolute left-0 right-0 top-[calc(100%+0.625rem)] z-40
+            max-h-[min(72vh,32rem)] overflow-y-auto overflow-x-hidden
+            rounded-3xl border border-white/25 bg-white/95 p-5 shadow-xl backdrop-blur-xl
+            sm:p-6
             lg:hidden
           "
           >
@@ -319,7 +319,7 @@ const handleMouseEnter = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-    </div>
+      </div>
+    </header>
   );
 }

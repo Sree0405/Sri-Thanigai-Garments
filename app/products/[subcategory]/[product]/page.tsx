@@ -1,6 +1,7 @@
 import Navbar from "@/src/components/layouts/Navbar";
 import Footer from "@/src/components/layouts/Footer";
 import CTASection from "@/src/components/CTASection";
+import HeroSection from "@/src/components/layouts/HeroSection";
 
 import ProductGallery from "@/src/components/product/ProductGallery";
 import ProductInfo from "@/src/components/product/ProductInfo";
@@ -8,8 +9,9 @@ import ProductFeatures from "@/src/components/product/ProductFeatures";
 import RelatedProducts from "@/src/components/product/RelatedProducts";
 
 import { getProductBySlug, getProductsByCategorySlug } from "@/src/data/products";
-import BreadcrumbNav from "@/src/components/product/BreadcrumbNav";
 import { notFound } from "next/navigation";
+
+import heroFallback from "@/src/assets/hero-factory.jpg";
 
 type Props = {
   params: Promise<{
@@ -85,6 +87,15 @@ export default async function ProductDetail({ params }: Props) {
     .filter((p: any) => p.slug !== product)
     .slice(0, 4);
 
+  const heroBackground =
+    productData.cover_image ??
+    productData.images[0] ??
+    heroFallback;
+
+  const heroDescription =
+    productData.shortDescription?.trim() ||
+    "Premium garment manufacturing in Chennai — precision stitching, quality fabrics, and reliable bulk production for your brand.";
+
   return (
     <div className="min-h-screen flex flex-col">
 
@@ -92,21 +103,34 @@ export default async function ProductDetail({ params }: Props) {
 
       <main>
 
-        <section className="pt-24 pb-12 mt-10 sm:pt-10 sm:pb-16 md:pt-12 md:pb-20 lg:pb-24 bg-background md:mt-0 mt-8">
+        <HeroSection
+          compact
+          tag={productData.category.name}
+          title={productData.name}
+          description={heroDescription}
+          backgroundImage={heroBackground}
+          breadcrumbs={[
+            { label: "Products", href: "/products" },
+            {
+              label: productData.category.name,
+              href: `/products/${productData.category.slug}`,
+            },
+            { label: productData.name },
+          ]}
+          primaryCTA={{
+            text: "Contact for bulk orders",
+            link: "/contact",
+          }}
+          secondaryCTA={{
+            text: "Back to collection",
+            link: `/products/${productData.category.slug}`,
+          }}
+          secondaryCTAVariant="arrow"
+        />
+
+        <section className="border-t border-border/40 bg-background py-10 sm:py-12 md:py-14 lg:py-16">
 
           <div className="container-narrow">
-
-            <BreadcrumbNav
-              items={[
-                { label: "Home", href: "/" },
-                { label: "Products", href: "/products" },
-                {
-                  label: productData.category.name,
-                  href: `/products/${productData.category.slug}`
-                },
-                { label: productData.name }
-              ]}
-            />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 xl:gap-16 items-start">
               <ProductGallery product={productData} />
