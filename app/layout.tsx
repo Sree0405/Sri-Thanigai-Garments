@@ -110,7 +110,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body className="w-full max-w-[100vw] overflow-x-hidden">
 
         {children}
       <FloatingButtons />

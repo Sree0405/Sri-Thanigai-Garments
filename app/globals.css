@@ -100,12 +100,17 @@
      GLOBAL BASE
   ==========================*/
 
-  * {
+  *,
+  *::before,
+  *::after {
     @apply border-border;
+    box-sizing: border-box;
   }
 
-  html {
-    overflow-x: clip;
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   body {
@@ -284,9 +289,6 @@
   .testimonial-swiper .swiper-button-prev {
     left: 0;
   }
-svg.swiper-navigation-icon {
-    width: 10px;
-}
   .testimonial-swiper .swiper-button-next {
     right: 0;
   }
@@ -319,11 +321,19 @@ svg.swiper-navigation-icon {
     /* Chevron size inside nav circles (must be smaller than button) */
     --swiper-navigation-size: 0.7rem;
     max-width: 100%;
-    overflow-x: clip;
+    overflow-x: hidden;
   }
 
+  .hero-carousel.swiper,
   .hero-carousel .swiper-wrapper {
     max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-carousel .swiper-slide {
+    width: 100%;
+    max-width: 100%;
+    flex-shrink: 0;
   }
 
   .hero-carousel .swiper-button-prev,

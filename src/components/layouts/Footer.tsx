@@ -9,6 +9,7 @@ import {
   Twitter,
 } from "lucide-react";
 import { categories } from "@/src/data/categories";
+import DeveloperContactFooter from "@/src/components/layouts/DeveloperContactFooter";
 
 const Footer = () => {
   return (
@@ -176,6 +177,8 @@ const Footer = () => {
           </div>
 
         </div>
+
+        <DeveloperContactFooter />
 
         {/* Bottom */}
 

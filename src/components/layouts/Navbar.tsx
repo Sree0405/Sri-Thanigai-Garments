@@ -34,7 +34,7 @@ const handleMouseEnter = () => {
   };
 
   return (
-    <header className="fixed top-3 left-0 right-0 z-50 px-3 sm:top-6 sm:px-4">
+    <header className="fixed top-3 left-0 right-0 z-50 w-full max-w-full overflow-x-clip px-3 sm:top-6 sm:px-4">
       <div className="relative mx-auto w-full max-w-6xl">
         {/* Floating bar — single row; mobile menu is NOT a flex sibling (prevents horizontal overflow) */}
         <div

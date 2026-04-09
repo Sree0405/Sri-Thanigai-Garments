@@ -124,7 +124,7 @@ export default async function Home() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
 
       <Navbar />
 

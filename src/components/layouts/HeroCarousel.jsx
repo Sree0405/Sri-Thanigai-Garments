@@ -12,18 +12,20 @@ import HeroSection from "./HeroSection";
 
 const HeroCarousel = ({ slides }) => {
   return (
-    <div className="w-full max-w-[100vw] overflow-x-clip">
+    <div className="w-full max-w-full overflow-hidden">
       <Swiper
         modules={[Autoplay, Pagination, Navigation, EffectFade]}
         autoplay={{ delay: 5000, pauseOnMouseEnter: true }}
         pagination={{ clickable: true, dynamicBullets: true }}
+        slidesPerView={1}
+        spaceBetween={0}
         navigation
         effect="fade"
         loop={slides.length > 1}
-        className="hero-carousel w-full max-w-full"
+        className="hero-carousel w-full max-w-full overflow-hidden"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index} className="!box-border">
+          <SwiperSlide key={index} className="!box-border !w-full !max-w-full !shrink-0">
             <HeroSection {...slide} />
           </SwiperSlide>
         ))}
