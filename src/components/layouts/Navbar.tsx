@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Home", path: "/" },
   { label: "Products", path: "/products", hasDropdown: true },
   { label: "Manufacturing", path: "/manufacturing" },
+  { label: "Design Gallery", path: "/design-gallery" },
   { label: "Infrastructure", path: "/infrastructure" },
   { label: "Gallery", path: "/gallery" },
 ];
