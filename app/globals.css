@@ -412,3 +412,6 @@
   }
 
 }
+svg.swiper-navigation-icon {
+  width: 10px !important;
+}
