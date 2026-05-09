@@ -88,24 +88,29 @@ console.log(categories)
 
                   {/* IMAGE */}
 
-                  <div className="relative h-[360px] overflow-hidden">
+<div className="relative h-[360px] w-full overflow-hidden rounded-3xl">
 
-                    <img
-                      src={getAssetUrl(item.images)}
-                      alt={item.title}
-                      // fill
-                      className="
-                      object-cover
-                      transition-transform duration-[1400ms]
-                      group-hover:scale-110
-                    "
-                    />
+  <Image
+    src={
+      typeof item.images === "string"
+        ? getAssetUrl(item.images)
+        : item.images
+    }
+    alt={item.title}
+    fill
+    sizes="(max-width: 768px) 100vw, 33vw"
+    className="
+      object-cover
+      object-center
+      transition-transform duration-[1400ms]
+      group-hover:scale-110
+    "
+  />
 
-                    {/* overlay gradient */}
+  {/* overlay */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-
-                  </div>
+</div>
 
 
                   {/* CONTENT */}
