@@ -3,8 +3,8 @@ import Footer from "@/src/components/layouts/Footer";
 import HeroSection from "@/src/components/layouts/HeroSection";
 import InfrastructureSection from "@/src/components/InfrastructureSection";
 import CTASection from "@/src/components/CTASection";
+import packagingArea from "@/src/assets/images/packaging-area.jpg";
 
-import heroImage from "@/src/assets/hero-factory.jpg";
 
 const Infrastructure = () => {
   return (
@@ -20,7 +20,7 @@ const Infrastructure = () => {
           highlight="Production Facility"
           description="Our production facility is equipped with modern industrial machines designed for precision garment manufacturing and scalable production."
 
-          backgroundImage={heroImage}
+          backgroundImage={packagingArea}
 
           breadcrumbs={[
             { label: "Infrastructure" }

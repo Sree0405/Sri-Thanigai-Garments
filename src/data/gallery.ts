@@ -184,12 +184,6 @@ const imageCollections = () => {
 
     // Factory
     {
-      id: "factory-1",
-      title: "Button Area",
-      category: "factory",
-      images: ButtonArea,
-    },
-    {
       id: "factory-2",
       title: "Fusing Machine",
       category: "factory",

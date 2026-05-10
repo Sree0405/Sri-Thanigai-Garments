@@ -4,7 +4,7 @@ import MetricCounters from "@/src/components/MetricCounters";
 import WhyChooseUs from "@/src/components/WhyChooseUs";
 import CTASection from "@/src/components/CTASection";
 import Footer from "@/src/components/layouts/Footer";
-import heroImage from "@/src/assets/hero-factory.jpg";
+import productionArea from "@/src/assets/hero-factory.jpg";
 
 import TestimonialSection from "@/src/components/testimonials/TestimonialSection";
 import { getTestimonials } from "@/src/data/testimonial";
@@ -14,6 +14,8 @@ import type { Metadata } from "next";
 import {  getCategories} from "@/src/data/categories";
 import CollectionCard from "@/src/components/product/CollectionCard";
 import CollectionsIntro from "@/src/components/category/CollectionsIntro";
+import OrderPackages from "@/src/assets/images/OrderPackages.jpg";
+
 
 export const metadata: Metadata = {
   title: "Sri Thanigai Garments | Garment Manufacturer in Chennai | Bulk Apparel Production",
@@ -86,7 +88,7 @@ export default async function Home() {
       highlight: "Sri Thanigai Garments",
       description:
         "Sri Thanigai Garments is a leading garment manufacturer in Chennai delivering high-quality apparel production for men, women and kids with advanced manufacturing infrastructure and strict quality control.",
-      backgroundImage: "https://srithanigai-garments-backend.onrender.com/assets/4033b1d4-d25f-4d90-a6b8-44390f1b47cb",
+      backgroundImage: productionArea,
       primaryCTA: {
         text: "Explore Products",
         link: "/products"
@@ -101,26 +103,26 @@ export default async function Home() {
         { value: "100+", label: "Business Clients" }
       ]
     },
-    {
-      tag: "Trusted Garment Manufacturer • Bulk Production • Export Quality",
-      highlight: "Sri Thanigai Garments",
-      description:
-        "Sri Thanigai Garments is a leading garment manufacturer in Chennai delivering high-quality apparel production for men, women and kids with advanced manufacturing infrastructure and strict quality control.",
-      backgroundImage: heroImage,
-      primaryCTA: {
-        text: "Explore Products",
-        link: "/products"
-      },
-      secondaryCTA: {
-        text: "Get a Quote",
-        link: "/contact"
-      },
-      metrics: [
-        { value: "10+", label: "Years Experience" },
-        { value: "500K+", label: "Garments Produced" },
-        { value: "100+", label: "Business Clients" }
-      ]
-    }    
+{
+  tag: "Reliable Bulk Dispatch • Timely Delivery • Trusted by Businesses",
+  highlight: "Delivering Orders Across Multiple Clients",
+  description:
+    "Our streamlined packaging and dispatch operations ensure every garment order is processed with accuracy, safety and on-time delivery. Sri Thanigai Garments efficiently manages bulk shipments for multiple business clients while maintaining consistent product quality and professional packaging standards.",
+  backgroundImage: OrderPackages,
+  primaryCTA: {
+    text: "View Our Process",
+    link: "/design-gallery"
+  },
+  secondaryCTA: {
+    text: "Contact Us",
+    link: "/contact"
+  },
+  metrics: [
+    { value: "500+", label: "Orders Processed" },
+    { value: "100+", label: "Business Clients" },
+    { value: "24/7", label: "Dispatch Workflow" }
+  ]
+}    
   ];
 
   return (
