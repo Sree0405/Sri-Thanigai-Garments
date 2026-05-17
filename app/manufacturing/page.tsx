@@ -20,7 +20,7 @@ async function Manufacturing() {
   backgroundImage: inspectionRoom,
   primaryCTA: {
     text: "Explore Infrastructure",
-  },
+    link: "/infrastructure"  },
   secondaryCTA: {
     text: "Contact Us",
     link: "/contact"
@@ -38,8 +38,8 @@ async function Manufacturing() {
     "Our modern ironing and finishing section ensures garments are professionally pressed, refined and prepared for final packaging. With dedicated finishing workflows and careful handling, every product is delivered with a clean, premium and market-ready presentation.",
   backgroundImage: ironingArea,
   primaryCTA: {
-    text: "View Manufacturing",
-  },
+    text: "View Infrastructure",
+    link: "/infrastructure"  },
   secondaryCTA: {
     text: "Get a Quote",
     link: "/contact"
