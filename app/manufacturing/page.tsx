@@ -20,7 +20,6 @@ async function Manufacturing() {
   backgroundImage: inspectionRoom,
   primaryCTA: {
     text: "Explore Infrastructure",
-    link: "/design-gallery"
   },
   secondaryCTA: {
     text: "Contact Us",
@@ -40,7 +39,6 @@ async function Manufacturing() {
   backgroundImage: ironingArea,
   primaryCTA: {
     text: "View Manufacturing",
-    link: "/design-gallery"
   },
   secondaryCTA: {
     text: "Get a Quote",

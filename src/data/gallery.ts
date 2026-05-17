@@ -158,12 +158,6 @@ const imageCollections = () => {
       images: fabricChecking,
     },
     {
-      id: "fabric-2",
-      title: "Fabric Quality Inspection",
-      category: "fabric",
-      images: fabricChecking2,
-    },
-    {
       id: "fabric-3",
       title: "Lay Table",
       category: "fabric",

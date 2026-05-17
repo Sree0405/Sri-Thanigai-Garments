@@ -7,7 +7,7 @@ export async function getmanufactoring(): Promise<ManufacturingStep[]> {
   try {
 
     const data = await directus.request(
-      readItems("manufactoring")
+      readItems("manufactoring"),
     )
 
     const steps: ManufacturingStep[] = data.map((item) => ({
