@@ -49,10 +49,10 @@ export default function ContactInfo() {
             <p className="font-semibold text-gradient-primary">Phone</p>
 
             <a
-              href="tel:+919876543210"
+              href="tel:+918220345926"
               className="text-muted-foreground hover:text-primary transition"
             >
-              +91 98765 43210
+              +91 8220345926
             </a>
           </div>
 

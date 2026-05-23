@@ -98,9 +98,10 @@ export default function RootLayout({
   const navigationSchema = {
     "@context": "https://schema.org",
     "@type": "SiteNavigationElement",
-    name: ["Home", "Products", "Manufacturing", "Gallery", "Contact"],
+    name: ["Home","About us", "Products", "Manufacturing", "Gallery", "Contact"],
     url: [
       "https://www.srithanigaigarments.com/",
+      "https://www.srithanigaigarments.com/aboutus",
       "https://www.srithanigaigarments.com/products",
       "https://www.srithanigaigarments.com/manufacturing",
       "https://www.srithanigaigarments.com/gallery",

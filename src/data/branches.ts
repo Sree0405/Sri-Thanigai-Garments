@@ -19,7 +19,7 @@ export const branches = [
     },
 
     contact: {
-      phone: ["+91 98765 43210"],
+      phone: ["+91 8220345926"],
       email: "srithanigaigarments@gmail.com",
     },
 
@@ -68,7 +68,7 @@ export const branches = [
     },
 
     contact: {
-      phone: ["+91 98765 43210"],
+      phone: ["+91 8220345926"],
       email: "srithanigaigarments@gmail.com",
     },
 
@@ -118,7 +118,7 @@ export const branches = [
     },
 
     contact: {
-      phone: ["+91 98765 43210"],
+      phone: ["+91 8220345926"],
       email: "srithanigaigarments@gmail.com",
     },
 
